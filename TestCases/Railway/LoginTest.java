@@ -7,10 +7,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Common.Guerrillamail;
 import Common.Utilities;
 import Constant.Constant;
 
-public class LoginTest {
+public class LoginTest extends Utilities {
 	public void openWebsite() {
         System.out.println("Test is running");
     }
@@ -100,7 +101,7 @@ public class LoginTest {
 	}
 	
 //	@Test 
-	public void TC05() {
+	public void TC05_OLD() {
 		System.out.println("User can't login with an account hasn't been activated");
 		HomePage homePage = new HomePage();
 		homePage.open();
@@ -111,7 +112,26 @@ public class LoginTest {
 		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
 		
 	}
-	@Test
+	@Test void TC05_NEW() {
+		System.out.println("User can't login with an account hasn't been activated");
+		
+		Guerrillamail guriGuerrillamail = new Guerrillamail();
+		
+		guriGuerrillamail.open();
+		
+		guriGuerrillamail.generateRandomEmail(generateRandomString());
+		
+		HomePage homePage = new HomePage();
+		homePage.open();
+		LoginPage loginPage = homePage.gotoLoginPage();
+		loginPage.login(Utilities.generateRandomString(), Constant.PASSWORD);
+		
+		String actualMsg = loginPage.getErrorMsg();
+		String expectedMsg = "Invalid username or password. Please try again.";
+		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+	}
+	
+//	@Test
 	public void TC06() {
 		System.out.println("User is redirected to Home page after logging out");
 		HomePage homePage = new HomePage();
