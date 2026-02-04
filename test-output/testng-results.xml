@@ -1,25 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-03T16:42:49 GMT+07:00" name="Default suite" finished-at="2026-02-03T16:42:57 GMT+07:00" duration-ms="8135">
+  <suite started-at="2026-02-04T16:52:12 GMT+07:00" name="Default suite" finished-at="2026-02-04T16:52:22 GMT+07:00" duration-ms="9757">
     <groups>
     </groups>
-    <test started-at="2026-02-03T16:42:49 GMT+07:00" name="Default test" finished-at="2026-02-03T16:42:57 GMT+07:00" duration-ms="8135">
-      <class name="Railway.LoginTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.LoginTest@3d51f06e]" started-at="2026-02-03T16:42:49 GMT+07:00" name="beforeMethod" finished-at="2026-02-03T16:42:55 GMT+07:00" duration-ms="5391" status="PASS">
+    <test started-at="2026-02-04T16:52:12 GMT+07:00" name="Default test" finished-at="2026-02-04T16:52:22 GMT+07:00" duration-ms="9757">
+      <class name="Railway.RegisterTest">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.RegisterTest@3d51f06e]" started-at="2026-02-04T16:52:12 GMT+07:00" name="beforeMethod" finished-at="2026-02-04T16:52:21 GMT+07:00" duration-ms="8357" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC01()[pri:0, instance:Railway.LoginTest@3d51f06e]" started-at="2026-02-03T16:42:55 GMT+07:00" name="TC01" finished-at="2026-02-03T16:42:57 GMT+07:00" duration-ms="2641" status="PASS">
+        <test-method signature="TC08()[pri:0, instance:Railway.RegisterTest@3d51f06e]" started-at="2026-02-04T16:52:21 GMT+07:00" name="TC08" finished-at="2026-02-04T16:52:22 GMT+07:00" duration-ms="1295" status="FAIL">
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Keys to send should be a not null CharSequence]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
+at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:96)
+at Railway.RegisterPage.register(RegisterPage.java:35)
+at Railway.RegisterTest.TC08(RegisterTest.java:48)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC01 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@3d51f06e]" started-at="2026-02-03T16:42:57 GMT+07:00" name="afterMethod" finished-at="2026-02-03T16:42:57 GMT+07:00" duration-ms="85" status="PASS">
+        </test-method> <!-- TC08 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@3d51f06e]" started-at="2026-02-04T16:52:22 GMT+07:00" name="afterMethod" finished-at="2026-02-04T16:52:22 GMT+07:00" duration-ms="86" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- Railway.LoginTest -->
+      </class> <!-- Railway.RegisterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

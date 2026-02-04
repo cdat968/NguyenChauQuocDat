@@ -27,6 +27,10 @@ public class LoginPage extends GeneralPage {
 		return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
 	}
 	
+	public String getErrorMsg() {
+		return this.getLblLoginErrorMsg().getText();
+	}
+	
 	public HomePage login(String username, String password) {
 		this.getTxtUsername().sendKeys(username);
 		this.getTxtPassword().sendKeys(password);

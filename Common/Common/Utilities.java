@@ -1,10 +1,17 @@
 package Common;
 
-public class Utilities {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-	public static String getProjectPath() {
-		// TODO Auto-generated method stub
-		return null;
+import Constant.Constant;
+
+public class Utilities {
+	protected WebElement getElement(By locator) {
+		return Constant.WEBDRIVER.findElement(locator);
+	}
+	public static String generateRandomString() {
+		return "user" + System.currentTimeMillis();
 	}
 
+	
 }
