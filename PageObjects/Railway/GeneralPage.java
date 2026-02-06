@@ -3,65 +3,87 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import Common.Utilities;
 import Constant.Constant;
+import Constant.MenuItem;
 
-public class GeneralPage {
-	private final By TabLogin = By.xpath("//div[@id='menu']//a[@href='/Account/Login.cshtml']");
-	private final By TabLogout = By.xpath("//div[@id='menu']//a[@href='/Account/Logout']");
-	private final By TabFAQ = By.xpath("//a[@href='/Page/FAQ.cshtml']");
-	private final By TabHome = By.xpath("//div[@id='menu']//a[@href='../']");
+public class GeneralPage extends Utilities {
 	private final By lblWelcomemessage = By.xpath("//div[@class='account']/strong");
-	private final By TabRegister = By.xpath("//div[@id='menu']//a[@href='/Account/Register.cshtml']");
-	
-	protected WebElement getTabRegister() {
-		return Constant.WEBDRIVER.findElement(TabRegister);
-	}
+
+	public static By TabByText(MenuItem menu, Boolean isActive) {		
+		String xpath = "//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']";
 		
-	protected WebElement getTabLogin() {
-		return Constant.WEBDRIVER.findElement(TabLogin);
+		if (isActive) {
+			xpath += "/ancestor-or-self::li[@class='selected']";
+		}
+		return By.xpath(xpath);
+//		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']");
+	}
+	public static By ActiveTabByText(MenuItem menu) {
+		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']/ancestor-or-self::li[@class='selected']");
+
 	}
 	
-	protected WebElement getTabLogout() {
-		return Constant.WEBDRIVER.findElement(TabLogout);
+	public void gotoTab(MenuItem menuItem) {
+		Utilities.getElement(TabByText(menuItem, false)).click();
 	}
 	
+	public static Boolean checkTabPageDisplayed(MenuItem menu, Boolean isActive) {
+		return Utilities.getElements(TabByText(menu, isActive)).isEmpty();
+	}
+	
+	
+	
+//	@SuppressWarnings("unchecked")
+//	public <T extends GeneralPage> T gotoPage(MenuItem menu) {
+//			gotoTab(menu);
+//			
+//			switch (menu) {
+//			
+//			case HOME: 
+//				return (T) new HomePage();
+//			
+//			case FAQ: 
+//				return (T) new FAQPage();
+//				
+//			case LOGIN:
+//				return (T) new LoginPage();
+//				
+//			case REGISTER:
+//				return (T) new RegisterPage();
+//				
+//			default:
+//				throw new IllegalArgumentException("Unexpected value: " + menu);
+//			}
+//	}
+		
+	
+	
+	
+//	public static Boolean isActiveTab(String tabName, Boolean isSelected) {
+//		return !Constant.WEBDRIVER.findElements(TabByText(tabName, isSelected)).isEmpty();
+//	}
+
 	protected WebElement getLblWelcomeMessage() {
 		return Constant.WEBDRIVER.findElement(lblWelcomemessage);
-	}
-	
-	protected WebElement getTabFAQ() {
-		return Constant.WEBDRIVER.findElement(TabFAQ);
-	}
-	protected WebElement getTabHome() {
-		return Constant.WEBDRIVER.findElement(TabHome);
 	}
 	
 	public String getWelcomeMessage() {
 		return this.getLblWelcomeMessage().getText();
 	}
-	public void gotoHomePage() {
-		this.getTabHome().click();
-	}
 	
-	public RegisterPage gotoRegisterPage() {
-		this.getTabRegister().click();
-		return new RegisterPage();
+	public <T> T gotoPage(MenuItem menuItem, Class<T> pageClass) {
+		Utilities.getElement(TabByText(menuItem, false)).click();
+		
+		try {
+			return pageClass.getDeclaredConstructor().newInstance();
+			
+		} catch (Exception e) {
+			
+			throw new RuntimeException(e);
+		}
 	}
-	
-	public FAQPage gotoFAQPage() {
-		this.getTabFAQ().click();
-		return new FAQPage();
-	}
-	
-	public HomePage logout() {
-		this.getTabLogout().click();
-		return new HomePage();
-	}
-	
-	public LoginPage gotoLoginPage() {
-		this.getTabLogin().click();
-		return new LoginPage();
-	}
+
 }
 
 

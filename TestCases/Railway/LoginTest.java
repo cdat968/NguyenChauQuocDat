@@ -1,149 +1,193 @@
 package Railway;
 
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import Common.Guerrillamail;
 import Common.Utilities;
 import Constant.Constant;
+import Constant.MenuItem;
 
-public class LoginTest extends Utilities {
-	public void openWebsite() {
-        System.out.println("Test is running");
-    }
-	@BeforeMethod
-	public void beforeMethod() {
-		System.out.println("Pre-condition");
-		
-//		System.setProperty("Webdriver.chrome.driver", Utilities.getProjectPath() + "\\Executables\\chromedriver.exe");
-		Constant.WEBDRIVER = new ChromeDriver();
-		Constant.WEBDRIVER.manage().window().maximize();
-		Constant.WEBDRIVER.get(Constant.RAILWAY_URL);
-		
-	}
-	@AfterMethod
-	public void afterMethod() {
-		System.out.println("Post-condition");
-		
-		Constant.WEBDRIVER.quit();
-	}
+public class LoginTest extends TestBase {
+
+	
 //	@Test
 	public void TC01() {
-		System.out.println("User can log into Railway with valid username and password");
-		
-		HomePage homePage = new HomePage();
-		
-		homePage.open();
-		
-		LoginPage loginPage = homePage.gotoLoginPage();
-		
-		String actualMsg = loginPage.login(Constant.USERNAME, Constant.PASSWORD).getWelcomeMessage();
+		Account account = new Account(Constant.USERNAME, Constant.PASSWORD, null);
+		String actualMsg;
 		
 		String expectedMsg = "Welcome " + Constant.USERNAME;
 		
+		System.out.println("TC01 - User can log into Railway with valid username and password");
+		
+		
+		System.out.println("1. Navigate to QA Railway Website");
+		
+		homePage.open(Constant.RAILWAY_URL);
+		
+		System.out.println("2. Click on \"Login\" tab");
+		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		
+		System.out.println("3. Enter valid Email and Password\n"
+				+ "4. Click on Login button");
+		System.out.println("V.P: User is logged into Railway. Welcome user message is displayed.");
+		loginPage.login(account);
+		
+		actualMsg = loginPage.getWelcomeMessage();
 		Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
 	}
 //	@Test
 	public void TC02() {
-		System.out.println("User can not login with blank 'Username' textbox");
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Constant.BLANK_USERNAME, Constant.PASSWORD);
-		String actualMsg = loginPage.getErrorMsg();
-		String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+		String actualMsg, expectedMsg;
+		Account account = new Account(Constant.BLANK_USERNAME, Constant.PASSWORD, null);
+		System.out.println("TC02 - User can not login with blank 'Username' textbox");
+		
+		System.out.println("1. Navigate to QA Railway Website");
+		
+		homePage.open(Constant.RAILWAY_URL);
+		
+		System.out.println("2. Click on \"Login\" tab");
+		
+		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		
+		System.out.println("3. User doesn't type any words into \"Username\" textbox but enter valid information into \"Password\" textbox\n"
+				+ "4. Click on \"Login\" button");
+		System.out.println("User can't login and message \"There was a problem with your login and/or errors exist in your form. \" appears.");
+		loginPage.login(account);
+		
+		actualMsg = loginPage.getErrorMsg();
+		
+		expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+		
 		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
 	}
 	
 //	@Test
 	public void TC03() {
-		System.out.println("User cannot log into Railway with invalid password");
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Constant.USERNAME, Constant.INVALID_PASSWORD);
-		String actualMsg = loginPage.getErrorMsg();
-		String expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+		String actualMsg, expectedMsg;
+		Account account = new Account(Constant.USERNAME, Constant.INVALID_PASSWORD, null);
+		System.out.println("TC03 - User cannot log into Railway with invalid password");
+		
+		System.out.println("1. Navigate to QA Railway Website");
+		homePage.open(Constant.RAILWAY_URL);
+		
+		System.out.println("2. Click on \"Login\" tab");
+		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		
+		System.out.println("3. Enter valid Email and invalid Password\n"
+				+ "4. Click on \\\"Login\\\" button");
+		System.out.println("Error message \"There was a problem with your login and/or errors exist in your form.\" is displayed");
+		loginPage.login(account);
+
+		actualMsg = loginPage.getErrorMsg();
+		expectedMsg = "There was a problem with your login and/or errors exist in your form.";
+		
 		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
 		
 	}
 	
 //	@Test
 	public void TC04() {
-		System.out.println("System shows message when user enters wrong password many times");
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		SoftAssert softAssert = new SoftAssert();
+		String actualMsg, expectedMsg, expectedMsg2;
+		
+		Account account = new Account(Constant.USERNAME, Constant.BLANK_PASSWORD, null);
+		
+		System.out.println("TC04 - System shows message when user enters wrong password many times");
+		System.out.println("1. Navigate to QA Railway Website");
+		
+		homePage.open(Constant.RAILWAY_URL, OpenType.NAVIGATE_URL);
+		
+		System.out.println("2. Click on \"Login\" tab");
+		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		
+		
+		System.out.println("3. Enter valid information into \"Username\" textbox except \"Password\" textbox.\n"
+				+ "4. Click on \"Login\" button\n"
+				+ "V.P: \"Invalid username or password. Please try again\" is shown"
+				+ "5. Repeat step 3 and 4 three more times.\n"
+				+ "V.P: User can't login and message \"You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.\" appears.");
+
+	
 		for (int i = 1; i <= Constant.TIMES_LOGIN; i++) {
-			loginPage.login(Constant.USERNAME, Constant.INVALID_PASSWORD);
+			loginPage.login(account);
 			
-			String actualMsg = loginPage.getErrorMsg();
+			actualMsg = loginPage.getErrorMsg();
 			if (i < Constant.TIMES_LOGIN) {
 //				System.out.println("login lan thu "+ i);
 //				System.out.println("actual message lan thu" + i + ":"+ actualMsg);
-				String expectedMsg = "Invalid username or password. Please try again";
-				softAssert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected message 1");
+				
+				expectedMsg = "Invalid username or password. Please try again";
+				Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected message 1");
 			} else {
 //				System.out.println("login lan thu "+ i);
 //				System.out.println("actual msg:::"+ actualMsg);
-				String expectedMsg2 = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
-//				System.out.println("expectedMsg 2::"+ expectedMsg2);
-				softAssert.assertEquals(actualMsg, expectedMsg2, "Error message is not displayed as expected message 2");
+				expectedMsg2 = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
+
+				Assert.assertEquals(actualMsg, expectedMsg2, "Error message is not displayed as expected message 2");
 			}
 		}
-		softAssert.assertAll();
 	
 	}
+
 	
-//	@Test 
-	public void TC05_OLD() {
-		System.out.println("User can't login with an account hasn't been activated");
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Constant.INACTIVE_USERNAME, Constant.PASSWORD);
-		String actualMsg = loginPage.getErrorMsg();
-		String expectedMsg = "Invalid username or password. Please try again.";
-		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+	@Test 
+	public void TC05() {
 		
-	}
-	@Test void TC05_NEW() {
-		System.out.println("User can't login with an account hasn't been activated");
+		String mainWindow, actualMsg, expectedMsg;
+		String strEmail = generateRandomString();
 		
-		Guerrillamail guriGuerrillamail = new Guerrillamail();
+		Account account = new Account(strEmail, Constant.PASSWORD, null);
+		System.out.println("TC05 - User can't login with an account hasn't been activated");
+		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
 		
-		guriGuerrillamail.open();
+		System.out.println("Pre-condition: a not-active account is existing");
+		register(strEmail, false);
 		
-		guriGuerrillamail.generateRandomEmail(generateRandomString());
+		System.out.println("1. Navigate to QA Railway Website");
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
 		
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Utilities.generateRandomString(), Constant.PASSWORD);
+		System.out.println("2. Click on \"Login\" tab");
+		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);
 		
-		String actualMsg = loginPage.getErrorMsg();
-		String expectedMsg = "Invalid username or password. Please try again.";
+		System.out.println("3. Enter username and password of account hasn't been activated.\n"
+				+ "4. Click on \"Login\" button\n");
+		loginPage.login(account);
+		System.out.println("String email LOGINTEST enter::::"+strEmail);
+
+		System.out.println("V.P: User can't login and message \"Invalid username or password. Please try again.\" appears.");
+		actualMsg = loginPage.getErrorMsg();
+		expectedMsg = "Invalid username or password. Please try again.";
+		
 		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
 	}
 	
 //	@Test
 	public void TC06() {
+		Boolean actual, expected;
+		Account account = new Account(Constant.USERNAME, Constant.PASSWORD, null);
 		System.out.println("User is redirected to Home page after logging out");
-		HomePage homePage = new HomePage();
-		homePage.open();
-		LoginPage loginPage = homePage.gotoLoginPage();
-		loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-		loginPage.gotoFAQPage();
 		
-		homePage.logout();
-		String actualTitle = homePage.getTxtTitle();
-		String expectedTitle = "Welcome to Safe Railway";
-		Assert.assertEquals(actualTitle, expectedTitle, "Home page does not displayed as expected");
+
+		System.out.println("1. Navigate to QA Railway Website");		
+		homePage.open(Constant.RAILWAY_URL);
+		
+		System.out.println("2. Login with valid Email and Password");
+		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		loginPage.login(account);
+		
+		System.out.println("3. Click on \"FAQ\" tab");
+		faqPage = loginPage.gotoPage(MenuItem.FAQ, FAQPage.class);
+		
+		
+		System.out.println("4. Click on \"Log out\" tab\n"
+				+ "V.P: Home page displays.\n"
+				+ "\"Log out\" tab is disappeared.");
+		loginPage.gotoPage(MenuItem.LOGOUT, HomePage.class);
+		
+		actual = !loginPage.isLoggedIn();
+		expected = false;
+		
+		Assert.assertEquals(actual, expected);
 	
 	}
 }

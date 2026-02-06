@@ -3,7 +3,9 @@ package Railway;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import Common.Utilities;
 import Constant.Constant;
+import Constant.MenuItem;
 
 public class LoginPage extends GeneralPage {
 	private final By _txtUsername = By.xpath("//input[@id='username']");
@@ -14,7 +16,7 @@ public class LoginPage extends GeneralPage {
 	public WebElement getTxtUsername() {
 		return Constant.WEBDRIVER.findElement(_txtUsername);
 	}
-	
+
 	public WebElement getTxtPassword() {
 		return Constant.WEBDRIVER.findElement(_txtPassword);
 	}
@@ -31,12 +33,25 @@ public class LoginPage extends GeneralPage {
 		return this.getLblLoginErrorMsg().getText();
 	}
 	
-	public HomePage login(String username, String password) {
-		this.getTxtUsername().sendKeys(username);
-		this.getTxtPassword().sendKeys(password);
+	public boolean isLoggedIn () {
+		try {
+			return checkTabPageDisplayed(MenuItem.LOGOUT, false);
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends GeneralPage> T login(Account account) {
+		enter(_txtUsername, account.getEmail());
+		enter(_txtPassword, account.getPassword());
+		
 		this.getBtnLogin().click();
 		
-		return new HomePage();
+		if (!this.isLoggedIn()) {
+			return (T) this;
+		}
+		return (T) new HomePage();
 	}
 	
 }
