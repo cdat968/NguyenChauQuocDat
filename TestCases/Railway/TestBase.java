@@ -36,13 +36,28 @@ public class TestBase extends Utilities {
 	public void afterMethod() {
 		System.out.println("Post-condition");
 		
-		Constant.WEBDRIVER.quit();
+//		Constant.WEBDRIVER.quit();
 	}
 	
-	public void register(String email, Boolean isActive) {
-		System.out.println("String email TESTBASE enter::::" + email);
+	public String register(String str, Boolean isActive) {
+		String email = "";
+		System.out.println("String email TESTBASE enter::::" + str);
+		
 		guerrillamailPage.open(Constant.EMAIL_URL, OpenType.NEW_TAB);
 		
-		guerrillamailPage.generateRandomEmail(email, isActive);
+		Boolean isFindEmail = !getElements(guerrillamailPage.convertStringToBy(guerrillamailPage._verifyEmailRegistered, str)).isEmpty();
+		System.out.print("is find meial::"+isFindEmail);
+		
+		while (!isFindEmail) {
+			System.out.println("verify run again:"+ isFindEmail);
+		 	email = guerrillamailPage.generateRandomEmail(str, isActive);
+			break;
+			
+		}
+		
+		System.out.println("\nRegister isActive"+isActive+"have email:"+email);
+		
+		return email;
+
 	}
 }

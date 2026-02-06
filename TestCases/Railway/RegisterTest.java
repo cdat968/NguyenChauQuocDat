@@ -8,7 +8,7 @@ import Constant.Constant;
 import Constant.MenuItem;
 
 public class RegisterTest extends TestBase {
-	
+
 //	@Test
 	public void TC07() {
 		Account account = new Account(Constant.REGISTER_EMAIL, Constant.PASSWORD, Constant.PID);
@@ -73,15 +73,18 @@ public class RegisterTest extends TestBase {
 	
 	@Test
 	public void TC09() {
-		String email = generateRandomString();
-		String actualTxtLink, expectedTxtLink, actualTxt, expectedTxt;
+
+		String mainWindow, actualTxtLink, expectedTxtLink, actualTxt, expectedTxt, expectedTxtRegisterSuccess, actualTxtSuccessMsg, email;
 		Boolean actualDisplay;
 		
-		Account account = new Account(email, Constant.PASSWORD,Constant.PID);
+		Account account;
+		String str = generateRandomString();		
 		
 		System.out.println("1. Navigate to QA Railway Website\n");
 		
-		homePage.open(Constant.RAILWAY_URL);
+		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
+		
+		
 		System.out.println("V.P: Home page is shown with guide containing href \"create an account\" to \"Register\" page");
 		actualTxtLink = homePage.getTxtLinkToRegister();
 		expectedTxtLink = "create an account";
@@ -93,12 +96,16 @@ public class RegisterTest extends TestBase {
 		
 		System.out.println("V.P: Register page is shown");
 		
-		actualDisplay = RegisterPage.checkTabPageDisplayed(MenuItem.REGISTER, true);
+		actualDisplay = !RegisterPage.checkTabPageDisplayed(MenuItem.REGISTER, true);
 		Assert.assertEquals(actualDisplay, true);
-		
 		
 		System.out.println("3. Enter valid information into all fields\n"
 				+ "4. Click on \"Register\" button");
+		email = register(str, false);
+		Constant.WEBDRIVER.close();
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
+		
+		account = new Account(email, Constant.PASSWORD,Constant.PID);
 		registerPage.register(account);
 		
 		System.out.println("V.P: \"Thank you for registering your account\" is shown");
@@ -111,12 +118,12 @@ public class RegisterTest extends TestBase {
 				+ "6. Login to the mailbox\n"
 				+ "7. Open email with subject containing \"Please confirm your account\"  and the email of the new account at step 3\n"
 				+ "8. Click on the activate link");
-		register(email, true);
+		register(str, true);
 		
 		System.out.println("Redirect to Railways page and message \"Registration Confirmed! You can now log in to the site\" is shown");
-		
-		
-		
+		expectedTxtRegisterSuccess = "Registration Confirmed! You can now log in to the site.";
+		actualTxtSuccessMsg = registerPage.getTxtRegisterSuccess();
+		Assert.assertEquals(actualTxtSuccessMsg, expectedTxtRegisterSuccess);
 		
 	}
 	

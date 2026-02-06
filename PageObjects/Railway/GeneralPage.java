@@ -17,7 +17,6 @@ public class GeneralPage extends Utilities {
 			xpath += "/ancestor-or-self::li[@class='selected']";
 		}
 		return By.xpath(xpath);
-//		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']");
 	}
 	public static By ActiveTabByText(MenuItem menu) {
 		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']/ancestor-or-self::li[@class='selected']");
@@ -32,37 +31,6 @@ public class GeneralPage extends Utilities {
 		return Utilities.getElements(TabByText(menu, isActive)).isEmpty();
 	}
 	
-	
-	
-//	@SuppressWarnings("unchecked")
-//	public <T extends GeneralPage> T gotoPage(MenuItem menu) {
-//			gotoTab(menu);
-//			
-//			switch (menu) {
-//			
-//			case HOME: 
-//				return (T) new HomePage();
-//			
-//			case FAQ: 
-//				return (T) new FAQPage();
-//				
-//			case LOGIN:
-//				return (T) new LoginPage();
-//				
-//			case REGISTER:
-//				return (T) new RegisterPage();
-//				
-//			default:
-//				throw new IllegalArgumentException("Unexpected value: " + menu);
-//			}
-//	}
-		
-	
-	
-	
-//	public static Boolean isActiveTab(String tabName, Boolean isSelected) {
-//		return !Constant.WEBDRIVER.findElements(TabByText(tabName, isSelected)).isEmpty();
-//	}
 
 	protected WebElement getLblWelcomeMessage() {
 		return Constant.WEBDRIVER.findElement(lblWelcomemessage);
@@ -87,19 +55,26 @@ public class GeneralPage extends Utilities {
 }
 
 
-//private By TabByText(String tabName) {
-//	"//div[@id='menu']//span[text()='Home']"
-//	return By.xpath("//div[@id='menu']//span[text()='" + tabName + "']");
+//@SuppressWarnings("unchecked")
+//public <T extends GeneralPage> T gotoPage(MenuItem menu) {
+//		gotoTab(menu);
+//		
+//		switch (menu) {
+//		
+//		case HOME: 
+//			return (T) new HomePage();
+//		
+//		case FAQ: 
+//			return (T) new FAQPage();
+//			
+//		case LOGIN:
+//			return (T) new LoginPage();
+//			
+//		case REGISTER:
+//			return (T) new RegisterPage();
+//			
+//		default:
+//			throw new IllegalArgumentException("Unexpected value: " + menu);
+//		}
 //}
-//private WebElement getTab(String tabName) {
-//	return Constant.WEBDRIVER.findElement(TabByText(tabName));
-//}
-//
-//public void clickTab(String tabName) {
-//	this.getTab(tabName).click();
-//}
-//private WebElement (String tabName) {
-//return Constant.WEBDRIVER.findElement(TabByText(tabName)).click();
-//}
-
-//a[@href='../']/span[text()='Home']/ancestor-or-self::li[@class='selected']
+	

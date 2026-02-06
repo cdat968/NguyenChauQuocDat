@@ -1,9 +1,11 @@
 package Guerrillamail;
 
+import java.awt.Window;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,8 +35,12 @@ public class GuerrillamailPage extends Utilities {
 		return select.getFirstSelectedOption().getText().trim();
 	}
 	
-	public GuerrillamailPage generateRandomEmail(String str, Boolean isActive) {
-		
+	public By convertStringToBy(String xpath, String email) {
+		return By.xpath(String.format(xpath, email));
+	}
+	
+	public String generateRandomEmail(String str, Boolean isActive) {
+		String email;
 		if (Utilities.getElement(checkScrambleAddress).isSelected()) {
 			Utilities.getElement(checkScrambleAddress).click();
 		}
@@ -45,13 +51,20 @@ public class GuerrillamailPage extends Utilities {
 		Utilities.getElement(_txtEmailInput).sendKeys(str);
 		Utilities.getElement(_btnSaveEmail).click();
 		waitForVisibility(_txtSuccessMsg);
-		Utilities.getElement(_txtEmail).getText();
+		email = Utilities.getElement(_txtEmail).getText();
 		
 		if (isActive) {
-			waitForVisibility(By.xpath(String.format(_verifyEmailRegistered, str)));
+			waitForVisibility(convertStringToBy(_verifyEmailRegistered, str));
+			getElement(convertStringToBy(_verifyEmailRegistered, str));
+//			scrollToElement(getElement(convertStringToBy(_verifyEmailRegistered, str)));
+			getElement(convertStringToBy(_verifyEmailRegistered, str)).click();
+			String linkToVerify = waitForVisibility(_linkToVerifyEmail).getText();
+//			Constant.WEBDRIVER.close();
+			Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);
+			Constant.WEBDRIVER.navigate().to(linkToVerify);
 		}
 		
-		return this;
+		return email;
 	}
 	
 	

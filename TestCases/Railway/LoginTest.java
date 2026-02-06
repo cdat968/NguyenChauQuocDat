@@ -133,26 +133,29 @@ public class LoginTest extends TestBase {
 	@Test 
 	public void TC05() {
 		
-		String mainWindow, actualMsg, expectedMsg;
+		String actualMsg, expectedMsg, email;
 		String strEmail = generateRandomString();
+		String mainWindow = "";
 		
-		Account account = new Account(strEmail, Constant.PASSWORD, null);
+		Account account;
 		System.out.println("TC05 - User can't login with an account hasn't been activated");
-		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
+		
 		
 		System.out.println("Pre-condition: a not-active account is existing");
-		register(strEmail, false);
+		email = register(strEmail, false);
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		Constant.WEBDRIVER.switchTo().window(mainWindow);
+		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on \"Login\" tab");
 		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);
 		
 		System.out.println("3. Enter username and password of account hasn't been activated.\n"
 				+ "4. Click on \"Login\" button\n");
+		account = new Account(email, Constant.PASSWORD, null);
 		loginPage.login(account);
-		System.out.println("String email LOGINTEST enter::::"+strEmail);
+		System.out.println("String email LOGINTEST enter::::"+email);
 
 		System.out.println("V.P: User can't login and message \"Invalid username or password. Please try again.\" appears.");
 		actualMsg = loginPage.getErrorMsg();

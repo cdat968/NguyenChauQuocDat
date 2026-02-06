@@ -16,11 +16,17 @@ public class RegisterPage extends GeneralPage{
 	private final By _lblPasswordErrorMsg = By.xpath("//form[@id='RegisterForm']//li[@class='password']//label[@class='validation-error']");
 	private final By _lblPidErrorMsg = By.xpath("//form[@id='RegisterForm']//li[@class='pid-number']//label[@class='validation-error']");
 	private final By _txtContentAfterRegister = By.xpath("//div[@id='content']/h1[@align='center']");
+	private final By _txtRegisterSuccess = By.xpath("//div[@id='content']/p");
 
 	public String getTxtContent() {
 		waitForVisibility(_txtContentAfterRegister);
 		scrollToElement(getElement(_txtContentAfterRegister));
 		return getElement(_txtContentAfterRegister).getText();
+	}
+
+	public String getTxtRegisterSuccess() {
+		waitForVisibility(_txtRegisterSuccess);
+		return getElement(_txtRegisterSuccess).getText();
 	}
 	
 	public String getErrorMsg() {
