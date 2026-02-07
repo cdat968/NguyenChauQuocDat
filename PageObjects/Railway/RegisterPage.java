@@ -7,7 +7,7 @@ import Common.Utilities;
 import Constant.Constant;
 
 public class RegisterPage extends GeneralPage{
-	
+
 	private final By _txtEmail = By.xpath("//form[@id='RegisterForm']//input[@id='email']");
 	private final By _txtPassword = By.xpath("//form[@id='RegisterForm']//input[@id='password']");
 	private final By _txtConfirmPassword = By.xpath("//form[@id='RegisterForm']//input[@id='confirmPassword']");
@@ -53,36 +53,3 @@ public class RegisterPage extends GeneralPage{
 
 	}
 }
-
-//this.getTxtEmail().sendKeys(email);
-//this.getTxtPassword().sendKeys(password);
-//this.getTxtConfirmPassword().sendKeys(confirmPassword);
-//this.getTxtPid().sendKeys(pid);
-//
-//this.getBtnRegister().click();
-//
-//return new HomePage();
-
-//public WebElement getTxtEmail() {
-//	return Constant.WEBDRIVER.findElement(_txtEmail);
-//}
-//
-//public WebElement getTxtPassword() {
-//	return Constant.WEBDRIVER.findElement(_txtPassword);
-//}
-//
-//public WebElement getTxtConfirmPassword() {
-//	return Constant.WEBDRIVER.findElement(_txtConfirmPassword);
-//}
-//
-//public WebElement getTxtPid() {
-//	return Constant.WEBDRIVER.findElement(_txtPid);
-//}
-//
-//public WebElement getBtnRegister() {
-//	return Constant.WEBDRIVER.findElement(_btnRegister);
-//}
-//
-//public WebElement getLblRegisterErrorMsg() {
-//	return Constant.WEBDRIVER.findElement(_lblRegisterErrorMsg);
-//}

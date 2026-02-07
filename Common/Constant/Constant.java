@@ -8,6 +8,7 @@ public class Constant {
 	public static final String EMAIL_URL = "https://www.guerrillamail.com/inbox";
 	public static final String USERNAME = "cdat968@gmail.com";
 	public static final String PASSWORD = "Kinbiut123";
+	public static final String WRONG_CONFIRM_PW = "Kinbiut12345";
 	public static final String BLANK_USERNAME = "";
 	public static final String BLANK_PASSWORD = "";
 	public static final String BLANK_PID = "";

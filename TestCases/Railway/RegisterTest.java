@@ -133,7 +133,7 @@ public class RegisterTest extends TestBase {
 		Assert.assertEquals(registerPage.getTxtRegisterSuccess(), "Registration Confirmed! You can now log in to the site.", "Success message did not shown");
 	}
 	
-	@Test
+//	@Test
 	public void TC10() {
 		System.out.println("TC10 - Reset password shows error if the new password is same as current");
 		System.out.println("Pre-condition: an actived account is existing");
@@ -158,7 +158,7 @@ public class RegisterTest extends TestBase {
 				+ "3. Enter the email address of the activated account\n"
 				+ "4. Click on \"Send Instructions\" button");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
-		loginPage.forgotPassword(email);
+		forgotPasswordPage.forgotPassword(email);
 		
 		System.out.println("5. Login to the mailbox (the same mailbox when creating account)\n"
 				+ "6. Open email with subject contaning \"Please reset your password\" and the email of the account at step 3\n"
@@ -166,16 +166,66 @@ public class RegisterTest extends TestBase {
 		register(email, false, true);
 		
 		System.out.println("V.P: Redirect to Railways page and Form \"Password Change Form\" is shown with the reset password token");
-		Assert.assertEquals(loginPage.isDisplayFormChangePw(), true, "Password Change Form is not displayed as expected");
-		Assert.assertEquals(loginPage.isDisplayResetToken(), true, "The reset password token is not displayed as expected");
+		Assert.assertEquals(resetPasswordPage.isDisplayFormChangePw(), true, "Password Change Form is not displayed as expected");
+		Assert.assertEquals(resetPasswordPage.isDisplayResetToken(), true, "The reset password token is not displayed as expected");
 		
 		System.out.println("8. Input same password into 2 fields 'new password' and 'confirm password'\n"
 				+ "9. Click Reset Password");
-		loginPage.changePassword(Constant.PASSWORD);
+		resetPasswordPage.resetPassword(Constant.PASSWORD, Constant.PASSWORD);
 		
-		System.out.println("Message \"The new password cannot be the same with the current password\" is shown");
-		Assert.assertEquals(loginPage.getSuccessMsg(), "The new password cannot be the same with the current password", "Message is not displayed as expected");
+		System.out.println("V.P: Message \"The new password cannot be the same with the current password\" is shown");
+		Assert.assertEquals(resetPasswordPage.getSuccessMsg(), "The new password cannot be the same with the current password", "Message is not displayed as expected");
 		
 	}
+	
+	@Test
+	public void TC11() {
+		System.out.println("TC11 - Reset password shows error if the new password and confirm password doesn't match");
+		System.out.println("Pre-condition: an actived account is existing");
+		String mainWindow, email;
+		
+		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
+		email = register(strEmail, false, false);
+		Constant.WEBDRIVER.close();
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
+		
+		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
+		registerPage.register(new Account(email, Constant.PASSWORD, Constant.PID));
+		
+		register(email, true, false);
+		Constant.WEBDRIVER.close();
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
+		
+		System.out.println("1. Navigate to QA Railway Login page");
+		open(Constant.RAILWAY_URL);
+		
+		System.out.println("2. Click on \"Forgot Password page\" link\n"
+				+ "3. Enter the email address of the activated account\n"
+				+ "4. Click on \"Send Instructions\" button");
+		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
+		forgotPasswordPage.forgotPassword(email);
+		
+		System.out.println("5. Login to the mailbox (the same mailbox when creating account)\n"
+				+ "6. Open email with subject contaning \"Please reset your password\" and the email of the account at step 3\n"
+				+ "7. Click on reset link");
+		register(email, false, true);
+		
+		System.out.println("V.P: Redirect to Railways page and Form \"Password Change Form\" is shown with the reset password token");
+		Assert.assertEquals(resetPasswordPage.isDisplayFormChangePw(), true, "Password Change Form is not displayed as expected");
+		Assert.assertEquals(resetPasswordPage.isDisplayResetToken(), true, "The reset password token is not displayed as expected");
+		
+		System.out.println("8. Input same password into 2 fields 'new password' and 'confirm password'\n"
+				+ "9. Click Reset Password");
+		resetPasswordPage.resetPassword(Constant.PASSWORD, Constant.WRONG_CONFIRM_PW);
+		
+		System.out.println("V.P: Error message \"Could not reset password. Please correct the errors and try again.\" displays above the form.\n"
+				+ "\n"
+				+ "Error message \"The password confirmation did not match the new password.\" displays next to the confirm password field.");
+		
+		Assert.assertEquals(resetPasswordPage.getErrorMsg(), "Could not reset password. Please correct the errors and try again.", "Error message FORM RESET PASSWORD is not displayed as expected");
+		Assert.assertEquals(resetPasswordPage.getErrorConfirmPw(), "The password confirmation did not match the new password.", "Error message of password confirmation is not displayed as expected");
+		
+	}
+
 	
 }

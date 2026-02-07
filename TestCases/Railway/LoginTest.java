@@ -142,7 +142,7 @@ public class LoginTest extends TestBase {
 		
 		
 		System.out.println("Pre-condition: a not-active account is existing");
-		email = register(strEmail, false);
+		email = register(strEmail, false, false);
 		Constant.WEBDRIVER.switchTo().window(mainWindow);
 		
 		System.out.println("1. Navigate to QA Railway Website");

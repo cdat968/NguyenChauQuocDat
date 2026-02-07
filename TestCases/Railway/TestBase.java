@@ -16,6 +16,8 @@ public class TestBase extends Utilities {
 	
 	Account account = new Account(null, null, null);
 	HomePage homePage = new HomePage();
+	ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
+	ResetPasswordPage resetPasswordPage = new ResetPasswordPage();
 	RegisterPage registerPage = new RegisterPage();
 	FAQPage faqPage = new FAQPage();
 	Utilities utilities = new Utilities();
