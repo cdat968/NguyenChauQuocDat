@@ -1,6 +1,7 @@
 package Railway;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -20,13 +21,8 @@ public class TestBase extends Utilities {
 	
 	@BeforeMethod
 	public void beforeMethod() {
-		
 		System.out.println("Pre-condition");
-//		Constant.WEBDRIVER = new ChromeDriver();
-//		Constant.WEBDRIVER.manage().window().maximize();
-//		String mainWindow = Constant.WEBDRIVER.getWindowHandle();
 		
-
 		Constant.WEBDRIVER = new ChromeDriver();
 		Constant.WEBDRIVER.manage().window().maximize();
 		open(Constant.RAILWAY_URL, OpenType.CURRENT_WINDOW);
@@ -36,7 +32,7 @@ public class TestBase extends Utilities {
 	public void afterMethod() {
 		System.out.println("Post-condition");
 		
-//		Constant.WEBDRIVER.quit();
+		Constant.WEBDRIVER.quit();
 	}
 	
 	public String register(String str, Boolean isActive) {
@@ -45,7 +41,7 @@ public class TestBase extends Utilities {
 		
 		guerrillamailPage.open(Constant.EMAIL_URL, OpenType.NEW_TAB);
 		
-		Boolean isFindEmail = !getElements(guerrillamailPage.convertStringToBy(guerrillamailPage._verifyEmailRegistered, str)).isEmpty();
+		Boolean isFindEmail = guerrillamailPage.isFindVerifyEmail(guerrillamailPage._verifyEmailRegistered, str);
 		System.out.print("is find meial::"+isFindEmail);
 		
 		while (!isFindEmail) {

@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-07T00:57:09 GMT+07:00" name="Default suite" finished-at="2026-02-07T00:57:40 GMT+07:00" duration-ms="31097">
+  <suite started-at="2026-02-07T11:51:01 GMT+07:00" name="Default suite" finished-at="2026-02-07T11:51:31 GMT+07:00" duration-ms="30707">
     <groups>
     </groups>
-    <test started-at="2026-02-07T00:57:09 GMT+07:00" name="Default test" finished-at="2026-02-07T00:57:40 GMT+07:00" duration-ms="31097">
+    <test started-at="2026-02-07T11:51:01 GMT+07:00" name="Default test" finished-at="2026-02-07T11:51:31 GMT+07:00" duration-ms="30707">
       <class name="Railway.RegisterTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.RegisterTest@4f6ee6e4]" started-at="2026-02-07T00:57:09 GMT+07:00" name="beforeMethod" finished-at="2026-02-07T00:57:14 GMT+07:00" duration-ms="4744" status="PASS">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.RegisterTest@3e58a80e]" started-at="2026-02-07T11:51:01 GMT+07:00" name="beforeMethod" finished-at="2026-02-07T11:51:06 GMT+07:00" duration-ms="5173" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC09()[pri:0, instance:Railway.RegisterTest@4f6ee6e4]" started-at="2026-02-07T00:57:14 GMT+07:00" name="TC09" finished-at="2026-02-07T00:57:40 GMT+07:00" duration-ms="26330" status="PASS">
+        <test-method signature="TC09()[pri:0, instance:Railway.RegisterTest@3e58a80e]" started-at="2026-02-07T11:51:06 GMT+07:00" name="TC09" finished-at="2026-02-07T11:51:31 GMT+07:00" duration-ms="25384" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC09 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@4f6ee6e4]" started-at="2026-02-07T00:57:40 GMT+07:00" name="afterMethod" finished-at="2026-02-07T00:57:40 GMT+07:00" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@3e58a80e]" started-at="2026-02-07T11:51:31 GMT+07:00" name="afterMethod" finished-at="2026-02-07T11:51:31 GMT+07:00" duration-ms="127" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

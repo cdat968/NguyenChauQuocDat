@@ -1,72 +1,53 @@
 package Guerrillamail;
 
-import java.awt.Window;
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Common.Utilities;
-import Constant.Constant;
 
 public class GuerrillamailPage extends Utilities {
+	
 	public final By checkScrambleAddress = By.xpath("//span[@id='alias-box']//input[@name='alias']");
 	public final By buttonClickToEdit = By.xpath("//div[@class='col2']//span[@id='inbox-id']");
 	public final By _txtSuccessMsg = By.xpath("//div[@class='status_alert shadow']");
 	public final By _txtEmailInput = By.xpath("//div[@class='col2']//input[@type='text']");
 	public final By _btnSaveEmail = By.xpath("//div[@class='col2']//button[@class='save button small']");
-//	public final By _verifyEmailRegistered = By.xpath("//tbody[@id='email_list']//td[@class='td3' and contains(text(), 'aotungchao1@sharklasers.com')]");
-	public final String _verifyEmailRegistered = "//tbody[@id='email_list']//td[@class='td3' and contains(text(), '%s')]";
 	public final By	_linkToVerifyEmail = By.xpath("//div[@class='email']//div[@class='email_body']//a[@target='_blank']");
 	public static By _txtEmail = By.xpath("//span[@id='email-widget']");
 	public final By _emailDomain = By.xpath("//select[@id='gm-host-select']");
 	
-	public GuerrillamailPage open() {
-		Constant.WEBDRIVER.navigate().to(Constant.EMAIL_URL);
-		return this;
-	}
+	public final String _verifyEmailRegistered = "//tbody[@id='email_list']//td[@class='td3' and contains(text(), '%s')]";
 	
 	public String getEmailDomain() {
 		Select select = new Select(getElement(_emailDomain));
 		return select.getFirstSelectedOption().getText().trim();
 	}
-	
-	public By convertStringToBy(String xpath, String email) {
-		return By.xpath(String.format(xpath, email));
+	public Boolean isFindVerifyEmail(String dynamicXpath, String email) {
+		return !getElements(getBy(dynamicXpath, email)).isEmpty();
 	}
 	
 	public String generateRandomEmail(String str, Boolean isActive) {
-		String email;
-		if (Utilities.getElement(checkScrambleAddress).isSelected()) {
-			Utilities.getElement(checkScrambleAddress).click();
+		String email, linkToVerify;
+		if (getElement(checkScrambleAddress).isSelected()) {
+			getElement(checkScrambleAddress).click();
 		}
 		
-		Utilities.getElement(buttonClickToEdit).click();
+		getElement(buttonClickToEdit).click();
 		
-		Utilities.getElement(_txtEmailInput).clear();
-		Utilities.getElement(_txtEmailInput).sendKeys(str);
-		Utilities.getElement(_btnSaveEmail).click();
+		getElement(_txtEmailInput).clear();
+		getElement(_txtEmailInput).sendKeys(str);
+		getElement(_btnSaveEmail).click();
 		waitForVisibility(_txtSuccessMsg);
-		email = Utilities.getElement(_txtEmail).getText();
+		email = getElement(_txtEmail).getText();
 		
 		if (isActive) {
-			waitForVisibility(convertStringToBy(_verifyEmailRegistered, str));
-			getElement(convertStringToBy(_verifyEmailRegistered, str));
-//			scrollToElement(getElement(convertStringToBy(_verifyEmailRegistered, str)));
-			getElement(convertStringToBy(_verifyEmailRegistered, str)).click();
-			String linkToVerify = waitForVisibility(_linkToVerifyEmail).getText();
-//			Constant.WEBDRIVER.close();
-			Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);
-			Constant.WEBDRIVER.navigate().to(linkToVerify);
+			click(_verifyEmailRegistered, email);
+			linkToVerify = getText(_linkToVerifyEmail);
+			open(linkToVerify, OpenType.NEW_TAB);
 		}
 		
 		return email;
 	}
-	
-	
-	
 }
+
+//public final By _verifyEmailRegistered = By.xpath("//tbody[@id='email_list']//td[@class='td3' and contains(text(), 'aotungchao1@sharklasers.com')]");

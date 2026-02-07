@@ -7,6 +7,7 @@ import Common.Utilities;
 import Constant.Constant;
 
 public class RegisterPage extends GeneralPage{
+	
 	private final By _txtEmail = By.xpath("//form[@id='RegisterForm']//input[@id='email']");
 	private final By _txtPassword = By.xpath("//form[@id='RegisterForm']//input[@id='password']");
 	private final By _txtConfirmPassword = By.xpath("//form[@id='RegisterForm']//input[@id='confirmPassword']");

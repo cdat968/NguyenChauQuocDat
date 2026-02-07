@@ -8,6 +8,7 @@ import Constant.Constant;
 import Constant.MenuItem;
 
 public class LoginPage extends GeneralPage {
+	
 	private final By _txtUsername = By.xpath("//input[@id='username']");
 	private final By _txtPassword = By.xpath("//input[@id='password']");
 	private final By _btnLogin = By.xpath("//input[@value='login']");
