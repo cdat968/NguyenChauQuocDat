@@ -31,15 +31,15 @@ public class RegisterPage extends GeneralPage{
 	}
 	
 	public String getErrorMsg() {
-		return Utilities.getElement(_lblRegisterErrorMsg).getText();
+		return getText(_lblRegisterErrorMsg);
 	}
 	
 	public String getValidateErrorPw() {
-		return Utilities.getElement(_lblPasswordErrorMsg).getText();
+		return getText(_lblPasswordErrorMsg);
 	}
 	
 	public String getValidateErrorPid() {
-		return Utilities.getElement(_lblPidErrorMsg).getText();
+		return getText(_lblPidErrorMsg);
 	}
 	
 	public RegisterPage register(Account account) {

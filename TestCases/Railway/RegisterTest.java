@@ -35,43 +35,47 @@ public class RegisterTest extends TestBase {
 		Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");		
 	}
 
-//	@Test
+	@Test
 	public void TC08() {
-		String actualMsg1, actualMsg2, actualMsg3, expectedMsg, expectedErrorPwMsg, expectedErrorPidMsg;
-		String strEmail = generateRandomString();
-		Account account = new Account(strEmail, "", "");
+		
+		String email, mainWindow;
 		
 		System.out.println("TC 08 - User can't create account while password and PID fields are empty");
-		System.out.println("1. Navigate to QA Railway Website");
-		homePage.open(Constant.RAILWAY_URL);
 		
+		System.out.println("1. Navigate to QA Railway Website");
+		
+		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
+		
+		email = register(strEmail, false);
+		
+		Constant.WEBDRIVER.close();
+		
+		Constant.WEBDRIVER.switchTo().window(mainWindow);
+	
 		System.out.println("2. Click on \"Register\" tab");
+		
 		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
 	
 		System.out.println("3. Enter valid email address and leave other fields empty\n"
 				+ "4. Click on \"Register\" button");
-		registerPage.register(account);
+		
+		registerPage.register(new Account(email, "", ""));
 		
 		System.out.println("V.P: Message \"There're errors in the form. Please correct the errors and try again.\" appears above the form.\n");
 		
-		actualMsg1 = registerPage.getErrorMsg();
-		expectedMsg = "There're errors in the form. Please correct the errors and try again.";
-		Assert.assertEquals(actualMsg1, expectedMsg);
+		Assert.assertEquals(registerPage.getErrorMsg(), "There're errors in the form. Please correct the errors and try again.", "Error message is not displayed as expected");
 		
 		System.out.println("V.P: Next to password fields, error message \"Invalid password length.\" displays\n");
-		actualMsg2 = registerPage.getValidateErrorPw();
-		expectedErrorPwMsg = "Invalid password length";
-		Assert.assertEquals(actualMsg2, expectedErrorPwMsg);
+		
+		Assert.assertEquals(registerPage.getValidateErrorPw(), "Invalid password length", "Error message is not displayed as expected");
 		
 		System.out.println("V.P: Next to PID field, error message \"Invalid ID length.\" displays");
-		actualMsg3 = registerPage.getValidateErrorPid();
-		expectedErrorPidMsg = "Invalid ID length";
 		
-		Assert.assertEquals(actualMsg3, expectedErrorPidMsg);
+		Assert.assertEquals(registerPage.getValidateErrorPid(), "Invalid ID length", "Error message is not displayed as expected");
 		
 	}
 	
-	@Test
+//	@Test
 	public void TC09() {
 		String mainWindow, email;
 		

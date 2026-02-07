@@ -12,6 +12,9 @@ import Guerrillamail.GuerrillamailPage;
 
 public class TestBase extends Utilities {
 	
+	String strEmail = generateRandomString();
+	
+	Account account = new Account(null, null, null);
 	HomePage homePage = new HomePage();
 	RegisterPage registerPage = new RegisterPage();
 	FAQPage faqPage = new FAQPage();
@@ -37,12 +40,11 @@ public class TestBase extends Utilities {
 	
 	public String register(String str, Boolean isActive) {
 		String email = "";
-		System.out.println("String email TESTBASE enter::::" + str);
+//		System.out.println("String email TESTBASE enter::::" + str);
 		
 		guerrillamailPage.open(Constant.EMAIL_URL, OpenType.NEW_TAB);
 		
 		Boolean isFindEmail = guerrillamailPage.isFindVerifyEmail(guerrillamailPage._verifyEmailRegistered, str);
-		System.out.print("is find meial::"+isFindEmail);
 		
 		while (!isFindEmail) {
 			System.out.println("verify run again:"+ isFindEmail);
@@ -51,7 +53,7 @@ public class TestBase extends Utilities {
 			
 		}
 		
-		System.out.println("\nRegister isActive"+isActive+"have email:"+email);
+		System.out.println("\nRegister isActive "+ isActive + " have email: " +email+ "\n");
 		
 		return email;
 

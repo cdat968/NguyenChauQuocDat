@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Constant.Constant;
 
 public class Utilities {
+
 	public static WebElement getElement(By locator) {
 		return Constant.WEBDRIVER.findElement(locator);
 	}
@@ -31,7 +32,7 @@ public class Utilities {
 		scrollToElement(element);
 		return element.getText();
 	}
-	
+
 	public static String getText(String dynamicXpath, Object... params) {
 		By locator = getBy(dynamicXpath, params);
 		return getText(locator);

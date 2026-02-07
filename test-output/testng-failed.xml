@@ -5,9 +5,9 @@
     <classes>
       <class name="Railway.RegisterTest">
         <methods>
+          <include name="TC08"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>
-          <include name="TC09"/>
         </methods>
       </class> <!-- Railway.RegisterTest -->
     </classes>
