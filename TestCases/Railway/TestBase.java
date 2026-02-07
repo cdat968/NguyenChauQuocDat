@@ -38,17 +38,22 @@ public class TestBase extends Utilities {
 		Constant.WEBDRIVER.quit();
 	}
 	
-	public String register(String str, Boolean isActive) {
+	public String register(String str, Boolean isActive, Boolean isResetPw) {
 		String email = "";
+		Boolean isFindEmail = false;
 //		System.out.println("String email TESTBASE enter::::" + str);
 		
 		guerrillamailPage.open(Constant.EMAIL_URL, OpenType.NEW_TAB);
 		
-		Boolean isFindEmail = guerrillamailPage.isFindVerifyEmail(guerrillamailPage._verifyEmailRegistered, str);
+		if (isActive) {
+			isFindEmail = guerrillamailPage.isFindVerifyEmail(guerrillamailPage._verifyEmailRegistered, str);
+		} else if (isResetPw) {
+			isFindEmail = guerrillamailPage.isFindVerifyEmail(guerrillamailPage._verifyForgotPw, str);
+		}
 		
 		while (!isFindEmail) {
 			System.out.println("verify run again:"+ isFindEmail);
-		 	email = guerrillamailPage.generateRandomEmail(str, isActive);
+		 	email = guerrillamailPage.generateRandomEmail(str, isActive, isResetPw);
 			break;
 			
 		}

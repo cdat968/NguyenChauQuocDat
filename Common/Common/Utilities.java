@@ -38,8 +38,20 @@ public class Utilities {
 		return getText(locator);
 	}
 	
+	public static Boolean isDisplayed(By locator) {
+		WebElement element = waitForVisibility(locator);
+		scrollToElement(element);
+		return !getElements(locator).isEmpty();
+	}
+	
 	public static void click(String dynamicXpath, Object... value) {
 		By locator = getBy(dynamicXpath, value);
+		WebElement element = waitForVisibility(locator);
+		scrollToElement(element);
+		element.click();
+	}
+	
+	public static void click(By locator) {
 		WebElement element = waitForVisibility(locator);
 		scrollToElement(element);
 		element.click();

@@ -48,7 +48,7 @@ public class RegisterPage extends GeneralPage{
 		enter(_txtConfirmPassword, account.getPassword());
 		enter(_txtPid, account.getPid());
 		
-		Utilities.getElement(_btnRegister).click();
+		getElement(_btnRegister).click();
 		return this;
 
 	}
