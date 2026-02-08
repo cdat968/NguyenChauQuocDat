@@ -23,6 +23,7 @@ public class TestBase extends Utilities {
 	Utilities utilities = new Utilities();
 	LoginPage loginPage = new LoginPage();
 	GuerrillamailPage guerrillamailPage = new GuerrillamailPage();
+	BookTicketPage bookTicketPage = new BookTicketPage();
 	
 	@BeforeMethod
 	public void beforeMethod() {

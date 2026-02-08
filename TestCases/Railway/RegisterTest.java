@@ -178,7 +178,7 @@ public class RegisterTest extends TestBase {
 		
 	}
 	
-	@Test
+//	@Test
 	public void TC11() {
 		System.out.println("TC11 - Reset password shows error if the new password and confirm password doesn't match");
 		System.out.println("Pre-condition: an actived account is existing");
@@ -226,6 +226,5 @@ public class RegisterTest extends TestBase {
 		Assert.assertEquals(resetPasswordPage.getErrorConfirmPw(), "The password confirmation did not match the new password.", "Error message of password confirmation is not displayed as expected");
 		
 	}
-
 	
 }

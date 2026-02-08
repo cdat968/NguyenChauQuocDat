@@ -6,7 +6,8 @@ public enum MenuItem {
 	CONTACT("Contact"),
 	LOGOUT("Log out"),
 	REGISTER("Register"),
-	LOGIN("Login");
+	LOGIN("Login"),
+	BOOKTICKET("Book ticket");
 	
 	private final String displayText;
 	
@@ -17,6 +18,5 @@ public enum MenuItem {
 	public String getText() {
 		return displayText;
 	}
-	
 	
 }

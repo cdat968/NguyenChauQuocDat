@@ -1,6 +1,7 @@
 package Common;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -64,8 +65,7 @@ public class Utilities {
 		NEW_TAB,
 		NEW_WINDOW
 	}
-	public void open(String url, OpenType openType) {
-		
+	public void open(String url, OpenType openType) {	
 		switch (openType) {
 			case NAVIGATE_URL:
 				Constant.WEBDRIVER.navigate().to(url);
@@ -121,7 +121,6 @@ public class Utilities {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		
 	}
-
 	
 }
 

@@ -19,6 +19,11 @@ public class Constant {
 	public static final String REGISTER_EMAIL = "cdat968@gmail.com";
 	public static final String CONFIRM_PASSWORD= "Kinbiut123";
 	public static final String PID = "6372434782"; 
+	public static final String NHA_TRANG = "Nha Trang";
+	public static final String HUE = "Huế";
+	public static final String SAI_GON = "Sài Gòn";
+	
+	
 }
 
 
