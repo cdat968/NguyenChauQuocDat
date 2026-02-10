@@ -9,7 +9,8 @@ import Constant.MenuItem;
 
 public class GeneralPage extends Utilities {
 	private final By lblWelcomemessage = By.xpath("//div[@class='account']/strong");
-
+	private final String tab = "//div[@id='menu']//span[normalize-space()='%s']";
+	
 	public static By TabByText(MenuItem menu, Boolean isActive) {		
 		String xpath = "//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']";
 		
@@ -21,9 +22,10 @@ public class GeneralPage extends Utilities {
 	public static By ActiveTabByText(MenuItem menu) {
 		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']/ancestor-or-self::li[@class='selected']");
 
+		
 	}
 	
-	public void gotoTab(MenuItem menuItem) {
+	public void clickTab(MenuItem menuItem) {
 		Utilities.getElement(TabByText(menuItem, false)).click();
 	}
 	
@@ -41,7 +43,8 @@ public class GeneralPage extends Utilities {
 	}
 	
 	public <T> T gotoPage(MenuItem menuItem, Class<T> pageClass) {
-		Utilities.getElement(TabByText(menuItem, false)).click();
+//		Utilities.getElement(TabByText(menuItem, false)).click();
+		click(tab, menuItem.getText());
 		
 		try {
 			return pageClass.getDeclaredConstructor().newInstance();

@@ -24,6 +24,8 @@ public class TestBase extends Utilities {
 	LoginPage loginPage = new LoginPage();
 	GuerrillamailPage guerrillamailPage = new GuerrillamailPage();
 	BookTicketPage bookTicketPage = new BookTicketPage();
+	TimeTablePage timeTablePage = new TimeTablePage();
+	TicketPricePage ticketPricePage = new TicketPricePage();
 	
 	@BeforeMethod
 	public void beforeMethod() {

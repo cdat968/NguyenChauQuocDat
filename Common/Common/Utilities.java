@@ -1,10 +1,10 @@
 package Common;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Constant.Constant;
+import Constant.OpenType;
 
 public class Utilities {
 
@@ -27,7 +28,7 @@ public class Utilities {
 	public static By getBy(String locator, Object... params) {
 		return By.xpath(String.format(locator, params));
 	}
-	
+
 	public static String getText(By locator) {
 		WebElement element = waitForVisibility(locator);
 		scrollToElement(element);
@@ -58,13 +59,6 @@ public class Utilities {
 		element.click();
 	}
 	
-	
-	public enum OpenType{
-		NAVIGATE_URL,
-		CURRENT_WINDOW,
-		NEW_TAB,
-		NEW_WINDOW
-	}
 	public void open(String url, OpenType openType) {	
 		switch (openType) {
 			case NAVIGATE_URL:
@@ -98,6 +92,7 @@ public class Utilities {
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
 		js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
 	}
+	
 	public void enter(By locator, String value) {
 		waitForVisibility(locator).clear();
 		scrollToElement(getElement(locator));
@@ -105,11 +100,7 @@ public class Utilities {
 	}
 	
 	public static String generateRandomString() {
-		return Long.toString(System.currentTimeMillis(), 36)
-		         + Integer.toString(
-		                 ThreadLocalRandom.current().nextInt(1000, 9999),
-		                 36
-		             );
+		return Long.toString(System.currentTimeMillis(), 36) + Integer.toString(ThreadLocalRandom.current().nextInt(1000, 9999), 36);
 	}
 	
 	public static WebElement waitForVisibility(By locator) {
@@ -118,8 +109,22 @@ public class Utilities {
 
 	public static WebElement waitforVisibility(By locator, int timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeOutInSeconds));
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
 		
+	}
+	
+	public static List<WebElement> waitForAllVisible(By locator) {
+		return waitForAllVisible(locator, Constant.SECONDS);
+	}
+	
+	public static List<WebElement> waitForAllVisible(By locator, int timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeOutInSeconds));
+		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+	}
+	
+	public static Alert waitAlert(By locator, int timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeOutInSeconds));
+		return wait.until(ExpectedConditions.alertIsPresent());
 	}
 	
 }
@@ -136,3 +141,5 @@ public class Utilities {
 //		throw new RuntimeException(e);
 //	}	
 //}
+//wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+//wait.until(ExpectedConditions.elementToBeClickable(locator));

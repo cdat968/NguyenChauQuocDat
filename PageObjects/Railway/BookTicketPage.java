@@ -25,6 +25,8 @@ public class BookTicketPage extends GeneralPage {
 	private final By _SuccessMsg = By.xpath("//div[@id='content']//h1[@align='center']");
 	//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='Nha Trang']
 	private final String _txtInfoTicket = "//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='%s']";
+	//li[text()='Đà Nẵng to Sài Gòn']/ancestor::tr//a[@class='BoxLink']
+
 	
 	
 	protected String getSuccessMsg() {
@@ -94,15 +96,29 @@ public class BookTicketPage extends GeneralPage {
 		selectByText(_selectTicketAmount, String.valueOf(number));
 	}
 	
+	protected void waitForOptionsExist(By locator, String city) {
+		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(Constant.SECONDS));
+		
+		wait.until(d -> {
+			Select select = new Select(waitForVisibility(locator));
+			return select.getOptions().stream().anyMatch(o -> o.getText().trim().equals(city));
+		});
+	}
+	
+	protected String getTxtSelectedOption(LocationType type, String cityName) {
+		By selectLocator = type.getLocator();
+		waitForOptionsExist(selectLocator, cityName);
+		Select select = new Select(waitForVisibility(selectLocator));
+		return select.getFirstSelectedOption().getText();
+	}
+	
 	protected void selectLocationByVisibleText(LocationType type, String cityName) {
 		By selectLocator = type.getLocator();
-		
-		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(10));
+
 		try {
-			wait.until(d -> {
-				Select selectLocation = new Select(waitForVisibility(selectLocator));
-				return selectLocation.getOptions().stream().anyMatch(o -> o.getText().trim().equals(cityName));
-			});
+			
+			waitForOptionsExist(selectLocator, cityName);
+			
 		} catch (TimeoutException e) {
 			 Assert.fail("System does not find location " + cityName + " in " + type);
 		}

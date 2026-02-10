@@ -1,5 +1,7 @@
 package Constant;
 
+import Railway.TicketPricePage;
+
 public enum MenuItem {
 	HOME("Home"),
 	FAQ("FAQ"),
@@ -7,7 +9,10 @@ public enum MenuItem {
 	LOGOUT("Log out"),
 	REGISTER("Register"),
 	LOGIN("Login"),
-	BOOKTICKET("Book ticket");
+	BOOKTICKET("Book ticket"),
+	TIMETABLE("Timetable"),
+	TICKETPRICE("Ticket price"),
+	MYTICKET("My ticket");
 	
 	private final String displayText;
 	
