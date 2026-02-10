@@ -1,12 +1,21 @@
 package Guerrillamail;
 
+import java.lang.classfile.instruction.ReturnInstruction;
 import java.lang.invoke.ConstantBootstraps;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 
+import Common.EmailService;
 import Common.Utilities;
 import Constant.Constant;
+import Constant.EmailAction;
+import Constant.OpenType;
 
 public class GuerrillamailPage extends Utilities {
 	
@@ -32,6 +41,70 @@ public class GuerrillamailPage extends Utilities {
 		return !getElements(getBy(dynamicXpath, email)).isEmpty();
 	}
 	
+	public void resetInbox(String emailPrefix) {
+		if (getElement(checkScrambleAddress).isSelected()) {
+			getElement(checkScrambleAddress).click();
+		}
+		
+		getElement(buttonClickToEdit).click();
+		
+		getElement(_txtEmailInput).clear();
+		getElement(_txtEmailInput).sendKeys(emailPrefix);
+		getElement(_btnSaveEmail).click();
+		waitForVisibility(_txtSuccessMsg);
+	}
+	public String createEmail(String prefix) {
+		
+		resetInbox(prefix);
+	
+		return getElement(_txtEmail).getText();
+	}
+	
+	public String waitForEmail(String email, EmailAction action) {
+		String mailLocator; 
+		
+		switch (action) {
+			case ACTIVATE_ACCOUNT:
+				mailLocator = _verifyEmailRegistered;
+				break;
+			case RESET_PASSWORD:  
+				mailLocator = _verifyForgotPw;
+				break;
+			default: 
+				throw new IllegalArgumentException("Unexpected value: " + action);	
+		}
+		
+		WaitUntilMailArrive(mailLocator, email);
+		
+		click(mailLocator, email);
+		
+		return getText(_linkToVerify);
+		
+	}
+	
+//	public Boolean isEmailPresent(String locator, String email) {
+//		return getElements(getBy(locator, email)).size() > 0;
+//	}
+	
+	public Boolean isEmailPresent(String locator, String email) {
+		return !getElements(getBy(locator, email)).isEmpty();
+	}
+	
+	public void WaitUntilMailArrive(String locator, String email) {
+		Wait<WebDriver> wait = new FluentWait<>(Constant.WEBDRIVER)
+				.withTimeout(Duration.ofSeconds(Constant.SECONDS))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
+		
+		wait.until(d -> {
+			if (isEmailPresent(locator, email)) {
+				return true;
+			}
+			resetInbox(email);
+			return false;
+		});
+	}
+	
 	public String generateRandomEmail(String str, Boolean isActive, Boolean isResetPw) {
 		String email, linkToVerify;
 		if (getElement(checkScrambleAddress).isSelected()) {
@@ -49,12 +122,13 @@ public class GuerrillamailPage extends Utilities {
 		if (isActive) {
 			click(_verifyEmailRegistered, email);
 			linkToVerify = getText(_linkToVerify);
-			open(linkToVerify, OpenType.NAVIGATE_URL);
+			open(linkToVerify);
+			
 		} 
 		else if (isResetPw) {
 			click(_verifyForgotPw, email);
 			linkToVerify = getText(_linkToVerify);
-			open(linkToVerify, OpenType.NAVIGATE_URL);
+			open(linkToVerify);
 		}
 		
 		return email;

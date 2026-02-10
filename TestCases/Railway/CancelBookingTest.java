@@ -8,8 +8,10 @@ import Constant.MenuItem;
 import Constant.SeatType;
 
 public class CancelBookingTest extends TestBase {
+	
 	@Test
 	public void TC16() {
+		
 		MyTicketPage myTicketPage = new MyTicketPage();
 		
 		Ticket ticket = new Ticket(6, Constant.DA_NANG, Constant.HUE, SeatType.HARD_SEAT, 4);
@@ -18,25 +20,7 @@ public class CancelBookingTest extends TestBase {
 		
 		System.out.println("Pre-condition: an actived account is existing");
 		
-		String mainWindow, email;
-
-		mainWindow = openNewTabAndReturnHandle(Constant.RAILWAY_URL);
-		
-		email = register(strEmail, false, false);
-		
-		Constant.WEBDRIVER.close();
-		
-		Constant.WEBDRIVER.switchTo().window(mainWindow);
-		
-		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
-		
-		registerPage.register(new Account(email, Constant.PASSWORD, Constant.PID));
-		
-		register(email, true, false);
-		
-		Constant.WEBDRIVER.close();
-		
-		Constant.WEBDRIVER.switchTo().window(mainWindow);
+		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
 		
@@ -68,8 +52,7 @@ public class CancelBookingTest extends TestBase {
 		
 		System.out.println("The canceled ticket is disappeared.");
 		
-		Assert.assertEquals(myTicketPage.isDeletedTicket(deleteTicketId), true, "Ticket is not canceled as expected");
-		
+		Assert.assertEquals(myTicketPage.isDeletedTicket(deleteTicketId), true, "Ticket is not canceled as expected");	
 	}
 	
 }

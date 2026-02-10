@@ -2,29 +2,58 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-10T09:25:46 GMT+07:00" name="Default suite" finished-at="2026-02-10T09:28:01 GMT+07:00" duration-ms="134949">
+  <suite started-at="2026-02-10T15:50:02 GMT+07:00" name="Default suite" finished-at="2026-02-10T15:50:31 GMT+07:00" duration-ms="28512">
     <groups>
     </groups>
-    <test started-at="2026-02-10T09:25:46 GMT+07:00" name="Default test" finished-at="2026-02-10T09:28:01 GMT+07:00" duration-ms="134949">
-      <class name="Railway.CancelBookingTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.CancelBookingTest@9f116cc]" started-at="2026-02-10T09:25:47 GMT+07:00" name="beforeMethod" finished-at="2026-02-10T09:26:19 GMT+07:00" duration-ms="32426" status="PASS">
+    <test started-at="2026-02-10T15:50:02 GMT+07:00" name="Default test" finished-at="2026-02-10T15:50:31 GMT+07:00" duration-ms="28512">
+      <class name="Railway.BookTicketTest">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.BookTicketTest@4466af20]" started-at="2026-02-10T15:50:02 GMT+07:00" name="beforeMethod" finished-at="2026-02-10T15:50:07 GMT+07:00" duration-ms="4898" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC16()[pri:0, instance:Railway.CancelBookingTest@9f116cc]" started-at="2026-02-10T09:26:19 GMT+07:00" name="TC16" finished-at="2026-02-10T09:28:01 GMT+07:00" duration-ms="102343" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@4466af20]" started-at="2026-02-10T15:50:07 GMT+07:00" name="TC15" finished-at="2026-02-10T15:50:31 GMT+07:00" duration-ms="23543" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[Ticket is not canceled as expected expected [true] but found [false]]]>
+              <![CDATA[invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=144.0.7559.134)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c6f8545a9aa13d958fad0bb89a67187b, findElements {using=xpath, value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlgd1ht516p@sharklasers.com')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.134, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55592}, goog:processID: 4280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55592/devtoo..., se:cdpVersion: 144.0.7559.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c6f8545a9aa13d958fad0bb89a67187b]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Ticket is not canceled as expected expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-at org.testng.Assert.assertEquals(Assert.java:132)
-at org.testng.Assert.assertEquals(Assert.java:1079)
-at org.testng.Assert.assertEquals(Assert.java:1055)
-at Railway.CancelBookingTest.TC16(CancelBookingTest.java:52)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=144.0.7559.134)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c6f8545a9aa13d958fad0bb89a67187b, findElements {using=xpath, value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlgd1ht516p@sharklasers.com')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.134, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55592}, goog:processID: 4280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55592/devtoo..., se:cdpVersion: 144.0.7559.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c6f8545a9aa13d958fad0bb89a67187b
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
+at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
+at Common.Utilities.getElements(Utilities.java:26)
+at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:90)
+at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:100)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
+at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:99)
+at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:77)
+at Common.EmailService.waitAndHandleEmail(EmailService.java:20)
+at Railway.TestBase.registerAndActiveAccount(TestBase.java:98)
+at Railway.BookTicketTest.TC15(BookTicketTest.java:165)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -53,15 +82,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC16 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CancelBookingTest@9f116cc]" started-at="2026-02-10T09:28:01 GMT+07:00" name="afterMethod" finished-at="2026-02-10T09:28:01 GMT+07:00" duration-ms="142" status="PASS">
+        </test-method> <!-- TC15 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@4466af20]" started-at="2026-02-10T15:50:31 GMT+07:00" name="afterMethod" finished-at="2026-02-10T15:50:31 GMT+07:00" duration-ms="49" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- Railway.CancelBookingTest -->
+      </class> <!-- Railway.BookTicketTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -25,9 +25,13 @@ public class BookTicketPage extends GeneralPage {
 	private final By _SuccessMsg = By.xpath("//div[@id='content']//h1[@align='center']");
 	//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='Nha Trang']
 	private final String _txtInfoTicket = "//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='%s']";
+	
+	private final By _txtTitleTable = By.xpath("//table[@class='MyTable MedTable']//tr[@class='TableSmallHeader']/th");
 	//li[text()='Đà Nẵng to Sài Gòn']/ancestor::tr//a[@class='BoxLink']
 
-	
+	protected String getTextTitleTable() {
+		return getText(_txtTitleTable);
+	}
 	
 	protected String getSuccessMsg() {
 		return getText(_SuccessMsg);
