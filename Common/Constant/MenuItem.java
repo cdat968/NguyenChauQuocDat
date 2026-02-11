@@ -1,7 +1,5 @@
 package Constant;
 
-import Railway.TicketPricePage;
-
 public enum MenuItem {
 	HOME("Home"),
 	FAQ("FAQ"),

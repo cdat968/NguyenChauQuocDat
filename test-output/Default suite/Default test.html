@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 10 15:50:02 GMT+07:00 2026</td>
+<td>Started on:</td><td>Wed Feb 11 13:24:12 GMT+07:00 2026</td>
 </tr>
-<tr><td>Total time:</td><td>28 seconds (28512 ms)</td>
+<tr><td>Total time:</td><td>39 seconds (39276 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,35 +77,10 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Railway.BookTicketTest.TC15()'><b>TC15</b><br>Test class: Railway.BookTicketTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=144.0.7559.134)
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c6f8545a9aa13d958fad0bb89a67187b, findElements {using=xpath, value=//tbody[@id=&apos;email_list&apos;]//td[@class=&apos;td3&apos; and contains(normalize-space(),&apos;Please confirm your account mlgd1ht516p@sharklasers.com&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.134, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55592}, goog:processID: 4280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55592/devtoo..., se:cdpVersion: 144.0.7559.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c6f8545a9aa13d958fad0bb89a67187b
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
-	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
-	at Common.Utilities.getElements(Utilities.java:26)
-	at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:90)
-	at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:100)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
-	at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:99)
-	at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:77)
-	at Common.EmailService.waitAndHandleEmail(EmailService.java:20)
-	at Railway.TestBase.registerAndActiveAccount(TestBase.java:98)
-	at Railway.BookTicketTest.TC15(BookTicketTest.java:165)
+<td><div><pre>java.lang.RuntimeException: System does not find date: 2/12/2026
+	at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:75)
+	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:169)
+	at Railway.BookTicketTest.TC15(BookTicketTest.java:291)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -132,36 +107,11 @@ Session ID: c6f8545a9aa13d958fad0bb89a67187b
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1911138454", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1911138454'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=144.0.7559.134)
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c6f8545a9aa13d958fad0bb89a67187b, findElements {using=xpath, value=//tbody[@id=&apos;email_list&apos;]//td[@class=&apos;td3&apos; and contains(normalize-space(),&apos;Please confirm your account mlgd1ht516p@sharklasers.com&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.134, chrome: {chromedriverVersion: 144.0.7559.133 (7da823b1d59..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55592}, goog:processID: 4280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55592/devtoo..., se:cdpVersion: 144.0.7559.134, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c6f8545a9aa13d958fad0bb89a67187b
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
-	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
-	at Common.Utilities.getElements(Utilities.java:26)
-	at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:90)
-	at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:100)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
-	at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:99)
-	at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:77)
-	at Common.EmailService.waitAndHandleEmail(EmailService.java:20)
-	at Railway.TestBase.registerAndActiveAccount(TestBase.java:98)
-	at Railway.BookTicketTest.TC15(BookTicketTest.java:165)
+</pre></div><a href='#' onClick='toggleBox("stack-trace810262298", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace810262298'><pre>java.lang.RuntimeException: System does not find date: 2/12/2026
+	at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:75)
+	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:169)
+	at Railway.BookTicketTest.TC15(BookTicketTest.java:291)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -189,8 +139,8 @@ Session ID: c6f8545a9aa13d958fad0bb89a67187b
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>23</td>
-<td>Railway.BookTicketTest@4466af20</td></tr>
+<td>35</td>
+<td>Railway.BookTicketTest@7c729a55</td></tr>
 </table><p>
 </body>
 </html>

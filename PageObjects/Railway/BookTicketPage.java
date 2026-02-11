@@ -1,18 +1,13 @@
 package Railway;
-
-import java.lang.invoke.ConstantBootstraps;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import Constant.Constant;
 import Constant.LocationType;
 import Constant.SeatType;
@@ -56,20 +51,27 @@ public class BookTicketPage extends GeneralPage {
 		String expectedDateTxt = targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 		
 		WebElement element = waitForVisibility(_selectDate);
+		
 		scrollToElement(element);
+		
 		Select selectDate = new Select(element);
 		
 		boolean isSelected = false;
 		
 		for (WebElement option : selectDate.getOptions()) {
+			
 			if (option.getText().trim().equals(expectedDateTxt)) {
+			
 				option.click();
+				
 				isSelected = true;
+				
 				break;
 			}
 		}
 		
 		if (!isSelected) {
+			
 			throw new RuntimeException("System does not find date: " +expectedDateTxt);
 		}
 	}

@@ -12,6 +12,8 @@ public class CancelBookingTest extends TestBase {
 	@Test
 	public void TC16() {
 		
+		BookTicketPage bookTicketPage = new BookTicketPage();
+		
 		MyTicketPage myTicketPage = new MyTicketPage();
 		
 		Ticket ticket = new Ticket(6, Constant.DA_NANG, Constant.HUE, SeatType.HARD_SEAT, 4);
@@ -48,7 +50,7 @@ public class CancelBookingTest extends TestBase {
 		
 		String deleteTicketId = myTicketPage.cancelBooking(Constant.DA_NANG, Constant.HUE);
 		
-		System.out.println("ticketId: "+deleteTicketId);
+		System.out.println("ticketId: " + deleteTicketId);
 		
 		System.out.println("The canceled ticket is disappeared.");
 		

@@ -1,52 +1,52 @@
 package Railway;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import Common.Utilities;
-import Constant.Constant;
 import Constant.MenuItem;
 
 public class LoginPage extends GeneralPage {
 	
 	private final By _txtUsername = By.xpath("//input[@id='username']");
+	
 	private final By _txtPassword = By.xpath("//input[@id='password']");
+	
 	private final By _btnLogin = By.xpath("//input[@value='login']");
-	private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-	
-//	private final String _linkForgotPw = "//div[@id='content']//a[text()='%s']";
 
-	
-	public WebElement getBtnLogin() {
-		return Constant.WEBDRIVER.findElement(_btnLogin);
-	}
-	
-	public WebElement getLblLoginErrorMsg() {
-		return Constant.WEBDRIVER.findElement(_lblLoginErrorMsg);
-	}
-	
+	private final By _lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
+		
 	public String getErrorMsg() {
-		return this.getLblLoginErrorMsg().getText();
+		
+		return getText(_lblLoginErrorMsg);
+	
 	}
 	
 	public boolean isLoggedIn () {
+		
 		try {
-			return checkTabPageDisplayed(MenuItem.LOGOUT, false);
+			
+			return checkTabPageDisplayed(MenuItem.LOGOUT);
+		
 		} catch (Exception e) {
+			
 			return false;
+		
 		}
 	}
 	
 	@SuppressWarnings("unchecked")
 	public <T extends GeneralPage> T login(Account account) {
+		
 		enter(_txtUsername, account.getEmail());
+		
 		enter(_txtPassword, account.getPassword());
 		
-		this.getBtnLogin().click();
+		click(_btnLogin);
 		
 		if (!this.isLoggedIn()) {
+			
 			return (T) this;
+		
 		}
+		
 		return (T) new HomePage();
 	}
 	

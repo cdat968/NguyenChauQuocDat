@@ -8,45 +8,40 @@ import Constant.Constant;
 import Constant.MenuItem;
 
 public class GeneralPage extends Utilities {
-	private final By lblWelcomemessage = By.xpath("//div[@class='account']/strong");
-	private final String tab = "//div[@id='menu']//span[normalize-space()='%s']";
 	
-	public static By TabByText(MenuItem menu, Boolean isActive) {		
-		String xpath = "//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']";
+	private final By lblWelcomemessage = By.xpath("//div[@class='account']/strong");
 		
-		if (isActive) {
-			xpath += "/ancestor-or-self::li[@class='selected']";
-		}
-		return By.xpath(xpath);
-	}
-	public static By ActiveTabByText(MenuItem menu) {
-		return By.xpath("//div[@id='menu']//span[normalize-space(text())='" + menu.getText() + "']/ancestor-or-self::li[@class='selected']");
-
-		
-	}
+	private final String tabActive = "//div[@id='menu']//span[normalize-space()='%s']/ancestor-or-self::li[@class='selected']";
+	
+	public static final String tab = "//div[@id='menu']//span[normalize-space()='%s']";
+	
 	
 	public void clickTab(MenuItem menuItem) {
-		Utilities.getElement(TabByText(menuItem, false)).click();
+		click(tab, menuItem.getText());
 	}
 	
-	public static Boolean checkTabPageDisplayed(MenuItem menu, Boolean isActive) {
-		return Utilities.getElements(TabByText(menu, isActive)).isEmpty();
+	public Boolean isTabActive(MenuItem menu) {
+		return !getElements(getBy(tabActive, menu.getText())).isEmpty();
 	}
 	
-
-	protected WebElement getLblWelcomeMessage() {
-		return Constant.WEBDRIVER.findElement(lblWelcomemessage);
+	public Boolean isExistTab(MenuItem menu) {
+		return !getElements(getBy(tab, menu.getText())).isEmpty();
+	}
+	
+	public static Boolean checkTabPageDisplayed(MenuItem menu) {
+		return getElements(getBy(tab, menu.getText())).size() > 0;
 	}
 	
 	public String getWelcomeMessage() {
-		return this.getLblWelcomeMessage().getText();
+		return getText(lblWelcomemessage);
 	}
 	
 	public <T> T gotoPage(MenuItem menuItem, Class<T> pageClass) {
-//		Utilities.getElement(TabByText(menuItem, false)).click();
-		click(tab, menuItem.getText());
+		
+		clickTab(menuItem);
 		
 		try {
+			
 			return pageClass.getDeclaredConstructor().newInstance();
 			
 		} catch (Exception e) {
@@ -57,27 +52,3 @@ public class GeneralPage extends Utilities {
 
 }
 
-
-//@SuppressWarnings("unchecked")
-//public <T extends GeneralPage> T gotoPage(MenuItem menu) {
-//		gotoTab(menu);
-//		
-//		switch (menu) {
-//		
-//		case HOME: 
-//			return (T) new HomePage();
-//		
-//		case FAQ: 
-//			return (T) new FAQPage();
-//			
-//		case LOGIN:
-//			return (T) new LoginPage();
-//			
-//		case REGISTER:
-//			return (T) new RegisterPage();
-//			
-//		default:
-//			throw new IllegalArgumentException("Unexpected value: " + menu);
-//		}
-//}
-	
