@@ -9,14 +9,55 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">39.276</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">25.404</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m0">TC15</a></td><td rowspan="1">1770791056621</td><td rowspan="1">35179</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m0">afterMethod</a></td><td rowspan="1">1770878993738</td><td rowspan="1">5</td></tr><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m1">TC12</a></td><td rowspan="1">1770878973299</td><td rowspan="1">20433</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Railway.BookTicketTest#TC15</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: System does not find date: 2/12/2026
-	at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:75)
-	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:169)
-	at Railway.BookTicketTest.TC15(BookTicketTest.java:291)
+<h2>Default test</h2><h3 id="m0">Railway.BookTicketTest#afterMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:126)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">Railway.BookTicketTest#TC12</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id=&apos;email_list&apos;]//td[@class=&apos;td3&apos; and contains(normalize-space(),&apos;Please confirm your account mlj3m50q3rf@sharklasers.com&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
+	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
+	at Common.Utilities.getElements(Utilities.java:24)
+	at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:77)
+	at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
+	at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:86)
+	at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:70)
+	at Common.EmailService.waitAndHandleEmail(EmailService.java:22)
+	at Railway.TestBase.registerAndActiveAccount(TestBase.java:68)
+	at Railway.BookTicketTest.TC12(BookTicketTest.java:23)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)

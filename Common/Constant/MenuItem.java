@@ -1,6 +1,7 @@
 package Constant;
 
 public enum MenuItem {
+	
 	HOME("Home"),
 	FAQ("FAQ"),
 	CONTACT("Contact"),

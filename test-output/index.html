@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Railway.BookTicketTest" class="method navigator-link" hash-for-method="TC15">TC15</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Railway.BookTicketTest" class="method navigator-link" hash-for-method="TC12">TC12</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -126,13 +126,36 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC15">
-                  </a> <!-- TC15 -->
-                  <span class="method-name">TC15</span>
-                  <div class="stack-trace">java.lang.RuntimeException: System does not find date: 2/12/2026
-	at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:75)
-	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:169)
-	at Railway.BookTicketTest.TC15(BookTicketTest.java:291)
+                  <a name="TC12">
+                  </a> <!-- TC12 -->
+                  <span class="method-name">TC12</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id=&apos;email_list&apos;]//td[@class=&apos;td3&apos; and contains(normalize-space(),&apos;Please confirm your account mlj3m50q3rf@sharklasers.com&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
+	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
+	at Common.Utilities.getElements(Utilities.java:24)
+	at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:77)
+	at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
+	at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:86)
+	at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:70)
+	at Common.EmailService.waitAndHandleEmail(EmailService.java:22)
+	at Railway.TestBase.registerAndActiveAccount(TestBase.java:68)
+	at Railway.BookTicketTest.TC12(BookTicketTest.java:23)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -168,7 +191,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/9r/35qbwsxs5kj6flwbkk62kxr80000gn/T/testng-eclipse-1523963991/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/9r/35qbwsxs5kj6flwbkk62kxr80000gn/T/testng-eclipse--1363663572/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -219,14 +242,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC15')
+data.setCell(0, 1, 'TC12')
 data.setCell(0, 2, 'Railway.BookTicketTest')
-data.setCell(0, 3, 35179);
+data.setCell(0, 3, 20433);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 35 seconds</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -254,18 +277,20 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Railway.BookTicketTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod</span>
+                <span class="method-name">beforeMethod(firefox)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">TC15</span>
-                <span class="method-start">3970 ms</span>
+                <span class="method-name">TC12</span>
+                <span class="method-start">4943 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">39152 ms</span>
+                <span class="method-start">25382 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

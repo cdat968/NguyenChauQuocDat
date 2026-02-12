@@ -3,39 +3,39 @@ package Railway;
 import org.openqa.selenium.By;
 
 public class ResetPasswordPage extends GeneralPage{
-	private final By _txtNewPw = By.xpath("//form[@method='post']//input[@id='newPassword']");
-	private final By _txtConfirmNewPw = By.xpath("//form[@method='post']//input[@id='confirmPassword']");
-	private final By _btnResetPw = By.xpath("//form[@method='post']//input[@title='Reset password']");
-	private final By _formChangePw = By.xpath("//form[@method='post']//legend[text()='Password Change Form']");
-	private final By _txtPwResetToken = By.xpath("//form[@method='post']//input[@id='resetToken']");
-	private final By _successMsgResetPw = By.xpath("//div[@id='content']//p[@class='message success']");
-	private final By _errorMsgResetPw = By.xpath("//div[@id='content']//p[@class='message error']");
-	private final By _errorMsgConfirmPw = By.xpath("//div[@id='content']//label[@class='validation-error']");
+	private final By txtNewPw = By.xpath("//form[@method='post']//input[@id='newPassword']");
+	private final By txtConfirmNewPw = By.xpath("//form[@method='post']//input[@id='confirmPassword']");
+	private final By btnResetPw = By.xpath("//form[@method='post']//input[@title='Reset password']");
+	private final By formChangePw = By.xpath("//form[@method='post']//legend[text()='Password Change Form']");
+	private final By txtPwResetToken = By.xpath("//form[@method='post']//input[@id='resetToken']");
+	private final By successMsgResetPw = By.xpath("//div[@id='content']//p[@class='message success']");
+	private final By errorMsgResetPw = By.xpath("//div[@id='content']//p[@class='message error']");
+	private final By errorMsgConfirmPw = By.xpath("//div[@id='content']//label[@class='validation-error']");
 
 
 	public void resetPassword(String password, String confirmPassword) {
-		enter(_txtNewPw, password);
-		enter(_txtConfirmNewPw, confirmPassword);
-		click(_btnResetPw);
+		enter(txtNewPw, password);
+		enter(txtConfirmNewPw, confirmPassword);
+		click(btnResetPw);
 	}
 
 	public Boolean isDisplayFormChangePw() {
-		return isDisplayed(_formChangePw);
+		return isDisplayed(formChangePw);
 	}
 	
 	public Boolean isDisplayResetToken() {
-		return isDisplayed(_txtPwResetToken);
+		return isDisplayed(txtPwResetToken);
 	}
 	
 	public String getSuccessMsg() {
-		return getText(_successMsgResetPw);
+		return getText(successMsgResetPw);
 	}
 	
 	public String getErrorMsg() {
-		return getText(_errorMsgResetPw);
+		return getText(errorMsgResetPw);
 	}
 	
 	public String getErrorConfirmPw() {
-		return getText(_errorMsgConfirmPw);
+		return getText(errorMsgConfirmPw);
 	}
 }

@@ -1,18 +1,13 @@
 package Railway;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import Common.Utilities;
-import Constant.Constant;
 import Constant.MenuItem;
 
 public class GeneralPage extends Utilities {
 	
 	private final By lblWelcomemessage = By.xpath("//div[@class='account']/strong");
-		
 	private final String tabActive = "//div[@id='menu']//span[normalize-space()='%s']/ancestor-or-self::li[@class='selected']";
-	
 	public static final String tab = "//div[@id='menu']//span[normalize-space()='%s']";
 	
 	
@@ -37,15 +32,11 @@ public class GeneralPage extends Utilities {
 	}
 	
 	public <T> T gotoPage(MenuItem menuItem, Class<T> pageClass) {
-		
 		clickTab(menuItem);
 		
 		try {
-			
 			return pageClass.getDeclaredConstructor().newInstance();
-			
 		} catch (Exception e) {
-			
 			throw new RuntimeException(e);
 		}
 	}

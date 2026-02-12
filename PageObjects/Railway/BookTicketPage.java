@@ -2,6 +2,7 @@ package Railway;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -13,72 +14,74 @@ import Constant.LocationType;
 import Constant.SeatType;
 
 public class BookTicketPage extends GeneralPage {
-	private final By _selectDate = By.xpath("//form[@method='post']//select[@name='Date']");
-	private final By _selectSeatType = By.xpath("//form[@method='post']//select[@name='SeatType']");
-	private final By _selectTicketAmount = By.xpath("//form[@method='post']//select[@name='TicketAmount']");
-	private final By _btnBookTicket = By.xpath("//form[@method='post']//input[@value='Book ticket']");
-	private final By _SuccessMsg = By.xpath("//div[@id='content']//h1[@align='center']");
-	//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='Nha Trang']
-	private final String _txtInfoTicket = "//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='%s']";
-	
-	private final By _txtTitleTable = By.xpath("//table[@class='MyTable MedTable']//tr[@class='TableSmallHeader']/th");
-	//li[text()='Đà Nẵng to Sài Gòn']/ancestor::tr//a[@class='BoxLink']
+
+	private final By selectDate = By.xpath("//form[@method='post']//select[@name='Date']");
+	private final By selectSeatType = By.xpath("//form[@method='post']//select[@name='SeatType']");
+	private final By selectTicketAmount = By.xpath("//form[@method='post']//select[@name='TicketAmount']");
+	private final By btnBookTicket = By.xpath("//form[@method='post']//input[@value='Book ticket']");
+	private final By SuccessMsg = By.xpath("//div[@id='content']//h1[@align='center']");
+	private final By txtTitleTable = By.xpath("//table[@class='MyTable MedTable']//tr[@class='TableSmallHeader']/th");
+	private final String txtInfoTicket = "//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='%s']";
+	private final String columnTicketInfo = "//table[contains(@class, 'MyTable')]//tr/td[count(//th[normalize-space()='%s']/preceding-sibling::th)+1]";
 
 	protected String getTextTitleTable() {
-		return getText(_txtTitleTable);
+		return getText(txtTitleTable);
 	}
 	
 	protected String getSuccessMsg() {
-		return getText(_SuccessMsg);
+		return getText(SuccessMsg);
 	}
 	
 	protected String getInforTicket(String value) {
-		return getText(_txtInfoTicket, value);
+		return getText(txtInfoTicket, value);
 	}
 	
 	protected String getInforTicket(SeatType seatType) {
-		return getText(_txtInfoTicket, seatType.getText());
+		return getText(txtInfoTicket, seatType.getText());
 	}
+	
+	
 	
 	protected String getDepartureStation(int daysFromToDay) {
 		LocalDate targetDate = LocalDate.now().plusDays(daysFromToDay);
 		return targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
 	
-	protected void selectDepartureDate(int daysFromToday) {
-		LocalDate targetDate = LocalDate.now().plusDays(daysFromToday);
-		
-		String expectedDateTxt = targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
-		
-		WebElement element = waitForVisibility(_selectDate);
-		
+	protected LocalDate getDepartDay() {
+		String daytext = new Select(waitForVisibility(selectDate))
+				.getFirstSelectedOption()
+				.getText();
+		return LocalDate.parse(daytext, DateTimeFormatter.ofPattern("M/d/yyyy"));
+	}
+	
+	protected String convertDateToString(int days, LocalDate departDate) {
+		LocalDate targetDate = departDate.plusDays(days);
+		return targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
+	}
+	
+	protected void selectDepartureDate(String selectedDepartDay) {
+//		LocalDate targetDate = LocalDate.now().plusDays(daysFromToday);
+//		String expectedDateTxt = targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
+		WebElement element = waitForVisibility(selectDate);
 		scrollToElement(element);
-		
 		Select selectDate = new Select(element);
-		
 		boolean isSelected = false;
 		
 		for (WebElement option : selectDate.getOptions()) {
-			
-			if (option.getText().trim().equals(expectedDateTxt)) {
-			
+			if (option.getText().trim().equals(selectedDepartDay)) {
 				option.click();
-				
 				isSelected = true;
-				
 				break;
 			}
 		}
 		
 		if (!isSelected) {
-			
-			throw new RuntimeException("System does not find date: " +expectedDateTxt);
+			throw new RuntimeException("System does not find date: " +selectedDepartDay);
 		}
 	}
 	
 	protected void selectByText(By locator, String text) {
 		Select select = new Select(waitForVisibility(locator));
-		
 		boolean isFound = false;
 		
 		for (WebElement option : select.getOptions()) {
@@ -95,11 +98,11 @@ public class BookTicketPage extends GeneralPage {
 	}
 	
 	protected void selectSeatType(SeatType seatType) {
-		selectByText(_selectSeatType, seatType.getText());
+		selectByText(selectSeatType, seatType.getText());
 	}
 	
 	protected void selectTicketAmount(int number) {
-		selectByText(_selectTicketAmount, String.valueOf(number));
+		selectByText(selectTicketAmount, String.valueOf(number));
 	}
 	
 	protected void waitForOptionsExist(By locator, String city) {
@@ -122,35 +125,14 @@ public class BookTicketPage extends GeneralPage {
 		By selectLocator = type.getLocator();
 
 		try {
-			
 			waitForOptionsExist(selectLocator, cityName);
-			
 		} catch (TimeoutException e) {
-			 Assert.fail("System does not find location " + cityName + " in " + type);
+			Assert.fail("System does not find location " + cityName + " in " + type);
 		}
 		Select select = new Select(waitForVisibility(selectLocator));
 		select.selectByVisibleText(cityName);
-		
-//		wait.until(d -> selectLocation.getOptions().stream().anyMatch(o -> o.getText().trim().equals(cityName)));
-		
-
-//		boolean isSelected = false;
-		
-//		for (WebElement option : selectLocation.getOptions()) {
-//			if (option.getText().trim().equals(cityName)) {
-//				option.click();
-//				isSelected = true;
-//				break;
-//			}
-//		}
-//		
-//		if (!isSelected) {
-//			Assert.fail("System does not find location "+ cityName + " in type: "+type);
-//		}
 	}
-	
-	
-	
+
 	protected void selectDepartureLocation(LocationType type, String city) {
 		if (type != LocationType.DEPARTURE) {
 			throw new IllegalArgumentException("DepartureCity only uses for DEPARTURE");
@@ -165,22 +147,42 @@ public class BookTicketPage extends GeneralPage {
 		selectLocationByVisibleText(type, city);
 	}
 	
+	protected Ticket getBookedTicketInfo() {
+		String actualDate = getText(columnTicketInfo, "Depart Date");
+		String actualDepartStation = getText(columnTicketInfo, "Depart Station");
+		String actualArriveStation = getText(columnTicketInfo, "Arrive Station");
+		SeatType actualSeatType = SeatType.fromText(getText(columnTicketInfo, "Seat Type"));
+		int actualAmountTicket = Integer.parseInt(getText(columnTicketInfo, "Amount"));
+		
+		return new Ticket(actualDate, actualDepartStation, actualArriveStation, actualSeatType, actualAmountTicket);
+	}
+	
 	protected BookTicketPage bookTicket(Ticket ticket) {
 		selectDepartureDate(ticket.getDepartureDate());
 		selectDepartureLocation(LocationType.DEPARTURE, ticket.getDepartureFrom());
 		selectArrivalLocation(LocationType.ARRIVE, ticket.getArrivalAt());
 		selectSeatType(ticket.getSeatType());
 		selectTicketAmount(ticket.getTicketAmount());
-		click(_btnBookTicket);
+		click(btnBookTicket);
 		
 		return this;
 	}
 	
+	protected void assertTicket(Ticket actualTicket, Ticket expectedTicket) {
+		 Assert.assertEquals(actualTicket.getDepartureDate(), expectedTicket.getDepartureDate(),
+		            "Departure date mismatch");
+
+		 Assert.assertEquals(actualTicket.getDepartureFrom(), expectedTicket.getDepartureFrom(),
+		            "Departure station mismatch");
+
+		 Assert.assertEquals(actualTicket.getArrivalAt(), expectedTicket.getArrivalAt(),
+		            "Arrival station mismatch");
+
+		 Assert.assertEquals(actualTicket.getSeatType(), expectedTicket.getSeatType(),
+		            "Seat type mismatch");
+
+		 Assert.assertEquals(actualTicket.getTicketAmount(), expectedTicket.getTicketAmount(),
+		            "Ticket amount mismatch");
+	}
+	
 }
-
-
-//private final By _selectDepartFrom = By.xpath("//form[@method='post']//select[@name='DepartStation']");
-//private final By _selectArriveAt = By.xpath("//form[@method='post']//select[@name='ArriveStation']");
-//protected void selectLocation(LocationType type, String value) {
-//selectByVisibleText(type.getLocator(), value);
-//}

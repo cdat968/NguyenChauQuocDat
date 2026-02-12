@@ -2,25 +2,61 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-11T13:24:12 GMT+07:00" name="Default suite" finished-at="2026-02-11T13:24:51 GMT+07:00" duration-ms="39276">
+  <suite started-at="2026-02-12T13:49:28 GMT+07:00" name="Default suite" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="25404">
     <groups>
     </groups>
-    <test started-at="2026-02-11T13:24:12 GMT+07:00" name="Default test" finished-at="2026-02-11T13:24:51 GMT+07:00" duration-ms="39276">
+    <test started-at="2026-02-12T13:49:28 GMT+07:00" name="Default test" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="25404">
       <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:Railway.BookTicketTest@7c729a55]" started-at="2026-02-11T13:24:12 GMT+07:00" name="beforeMethod" finished-at="2026-02-11T13:24:16 GMT+07:00" duration-ms="3969" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:28 GMT+07:00" name="beforeMethod" finished-at="2026-02-12T13:49:33 GMT+07:00" duration-ms="4942" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@7c729a55]" started-at="2026-02-11T13:24:16 GMT+07:00" name="TC15" finished-at="2026-02-11T13:24:51 GMT+07:00" duration-ms="35179" status="FAIL">
-          <exception class="java.lang.RuntimeException">
+        <test-method signature="TC12()[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:33 GMT+07:00" name="TC12" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="20433" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[System does not find date: 2/12/2026]]>
+              <![CDATA[Failed to decode response from marionette
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlj3m50q3rf@sharklasers.com')], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: System does not find date: 2/12/2026
-at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:75)
-at Railway.BookTicketPage.bookTicket(BookTicketPage.java:169)
-at Railway.BookTicketTest.TC15(BookTicketTest.java:291)
+              <![CDATA[org.openqa.selenium.WebDriverException: Failed to decode response from marionette
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlj3m50q3rf@sharklasers.com')], using=xpath}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
+at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
+at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
+at Common.Utilities.getElements(Utilities.java:24)
+at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:77)
+at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:87)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
+at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:86)
+at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:70)
+at Common.EmailService.waitAndHandleEmail(EmailService.java:22)
+at Railway.TestBase.registerAndActiveAccount(TestBase.java:68)
+at Railway.BookTicketTest.TC12(BookTicketTest.java:23)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -49,11 +85,42 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC15 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@7c729a55]" started-at="2026-02-11T13:24:51 GMT+07:00" name="afterMethod" finished-at="2026-02-11T13:24:51 GMT+07:00" duration-ms="110" status="PASS">
+        </test-method> <!-- TC12 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:53 GMT+07:00" name="afterMethod" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="5" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
+            <message>
+              <![CDATA[Tried to run command without establishing a connection
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
+Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:126)
+at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+at java.base/java.lang.Thread.run(Thread.java:1474)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
