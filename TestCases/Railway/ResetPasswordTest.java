@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Common.EmailService;
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.EmailAction;
 import Constant.MenuItem;
@@ -24,7 +25,7 @@ public class ResetPasswordTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Forgot Password page' link");
 		System.out.println("3. Enter the email address of the activated account");
@@ -70,7 +71,7 @@ public class ResetPasswordTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Forgot Password page' link");
 		System.out.println("3. Enter the email address of the activated account");

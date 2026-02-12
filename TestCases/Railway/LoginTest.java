@@ -3,6 +3,8 @@ package Railway;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Common.EmailService;
+import Common.Utilities;
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.MenuItem;
 
@@ -16,7 +18,7 @@ public class LoginTest extends TestBase {
 		System.out.println("TC01 - User can log into Railway with valid username and password");
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Login' tab");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -39,7 +41,7 @@ public class LoginTest extends TestBase {
 		
 		System.out.println("TC02 - User can not login with blank 'Username' textbox");
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Login' tab");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -64,7 +66,7 @@ public class LoginTest extends TestBase {
 		System.out.println("TC03 - User cannot log into Railway with invalid password");
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Login' tab");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -90,7 +92,7 @@ public class LoginTest extends TestBase {
 		System.out.println("TC04 - System shows message when user enters wrong password many times");
 		
 		System.out.println("1. Navigate to QA Railway Website");	
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on Login tab");
 		loginPage.clickTab(MenuItem.LOGIN);
@@ -118,7 +120,7 @@ public class LoginTest extends TestBase {
 	public void TC05() {
 		
 		EmailService mailService = new EmailService();
-		String strEmail = generateRandomString();
+		String strEmail = Utilities.generateRandomString();
 		Account account = new Account("", Constant.PASSWORD, "");
 		LoginPage loginPage = new LoginPage();
 		
@@ -128,7 +130,7 @@ public class LoginTest extends TestBase {
 		String email = mailService.generateEmail(strEmail);
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Login' tab");
 		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);

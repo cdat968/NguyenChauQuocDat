@@ -2,6 +2,8 @@ package Railway;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.MenuItem;
 
@@ -16,7 +18,7 @@ public class LogoutTest extends TestBase {
 		System.out.println("User is redirected to Home page after logging out");
 		
 		System.out.println("1. Navigate to QA Railway Website");		
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with valid Email and Password");
 		loginPage = loginPage.gotoPage(MenuItem.LOGIN, LoginPage.class);

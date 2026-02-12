@@ -58,23 +58,23 @@ public class Utilities extends WindowManager {
 		element.click();
 	}
 	
-	public static void open(String url) {
-		Constant.WEBDRIVER.navigate().to(url);
-	}
-	
-	public static void close() {
-		Constant.WEBDRIVER.close();
-	}
-	
-	public static void openNewTab(String url) {
-		Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);
-		Constant.WEBDRIVER.get(url);
-	}
-	
-	public static void closeCurrentTabAndBack() {
-		close();
-		WindowManager.switchBack();
-	}
+//	public static void open(String url) {
+//		Constant.WEBDRIVER.navigate().to(url);
+//	}
+//	
+//	public static void close() {
+//		Constant.WEBDRIVER.close();
+//	}
+//	
+//	public static void openNewTab(String url) {
+//		Constant.WEBDRIVER.switchTo().newWindow(WindowType.TAB);
+//		Constant.WEBDRIVER.get(url);
+//	}
+//	
+//	public static void closeCurrentTabAndBack() {
+//		close();
+//		WindowManager.switchBack();
+//	}
 	
 	public static void scrollToElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;

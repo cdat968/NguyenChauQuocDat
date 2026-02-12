@@ -3,6 +3,7 @@ package Railway;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.MenuItem;
 import Constant.SeatType;
@@ -24,7 +25,7 @@ public class CancelBookingTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with a valid account ");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);

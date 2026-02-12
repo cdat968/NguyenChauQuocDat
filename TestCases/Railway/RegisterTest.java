@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Common.EmailService;
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.EmailAction;
 import Constant.MenuItem;
@@ -23,7 +24,7 @@ public class RegisterTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Click on 'Register' tab");
 		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
@@ -50,10 +51,10 @@ public class RegisterTest extends TestBase {
 		System.out.println("TC 08 - User can't create account while password and PID fields are empty");
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
-		saveCurrentWindow();
+		WindowManager.open(Constant.RAILWAY_URL);
+		WindowManager.saveCurrentWindow();
 		email = mailService.generateEmail(strEmail);
-		closeCurrentTabAndBack();
+		WindowManager.closeCurrentTabAndBack();
 	
 		System.out.println("2. Click on 'Register' tab");
 		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
@@ -90,8 +91,8 @@ public class RegisterTest extends TestBase {
 		System.out.println("TC09 - User create and activate account");
 		
 		System.out.println("1. Navigate to QA Railway Website");
-		open(Constant.RAILWAY_URL);
-		saveCurrentWindow();
+		WindowManager.open(Constant.RAILWAY_URL);
+		WindowManager.saveCurrentWindow();
 		
 		System.out.println("V.P: Home page is shown with guide containing href 'create an account' to 'Register' page");
 		String actualTextLink = homePage.getTextLinkToRegister();
@@ -108,11 +109,11 @@ public class RegisterTest extends TestBase {
 		System.out.println("3. Enter valid information into all fields");
 		System.out.println("4. Click on 'Register' button");
 		email = mailService.generateEmail(strEmail);
-		closeCurrentTabAndBack();
+		WindowManager.closeCurrentTabAndBack();
 		account.setEmail(email);
 		
 		registerPage.register(account);
-		saveCurrentWindow();
+		WindowManager.saveCurrentWindow();
 		
 		System.out.println("V.P: 'Thank you for registering your account' is shown");
 		String actualMsg = registerPage.getTextContent();

@@ -14,15 +14,16 @@ import Constant.Constant;
 import Constant.EmailAction;
 import Constant.MenuItem;
 
-public class TestBase extends Utilities {
+public class TestBase {
 	
-	String strEmail = generateRandomString();
+	
+	String strEmail = Utilities.generateRandomString();
 	HomePage homePage = new HomePage();
+
 	
 	@Parameters("browser")
 	@BeforeMethod
 	public void beforeMethod(@Optional("firefox") String browser) {
-		
 		String runBrowser = System.getProperty("browser", browser);
 		
 		if("chrome".equalsIgnoreCase(runBrowser)) {
@@ -39,17 +40,13 @@ public class TestBase extends Utilities {
 //		Constant.WEBDRIVER = new ChromeDriver();
 		
 		Constant.WEBDRIVER.manage().window().maximize();
-		
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 	}
 	
 	@AfterMethod
 	public void afterMethod() {
-		
 		System.out.println("Post-condition");
-		
 		Constant.WEBDRIVER.quit();
-		
 	}
 	
 	public String registerAndActiveAccount() {
@@ -60,13 +57,14 @@ public class TestBase extends Utilities {
 		
 		WindowManager.saveCurrentWindow();
 		String email = mailService.generateEmail(strEmail);
-		closeCurrentTabAndBack();
+		WindowManager.closeCurrentTabAndBack();
+		
 		registerPage = homePage.gotoPage(MenuItem.REGISTER, RegisterPage.class);
 		account.setEmail(email);
 		registerPage.register(account);
 		WindowManager.saveCurrentWindow();
 		mailService.waitAndHandleEmail(email, EmailAction.ACTIVATE_ACCOUNT);
-		closeCurrentTabAndBack();
+		WindowManager.closeCurrentTabAndBack();
 		System.out.println("email regisrerd:"+email);
 		
 		return email;

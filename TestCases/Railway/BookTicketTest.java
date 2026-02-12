@@ -2,6 +2,8 @@ package Railway;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import Common.WindowManager;
 import Constant.Constant;
 import Constant.LocationType;
 import Constant.MenuItem;
@@ -23,7 +25,7 @@ public class BookTicketTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with a valid account ");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -78,7 +80,7 @@ public class BookTicketTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with a valid account ");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -133,7 +135,7 @@ public class BookTicketTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with a valid account ");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
@@ -177,7 +179,7 @@ public class BookTicketTest extends TestBase {
 		String email = registerAndActiveAccount();
 		
 		System.out.println("1. Navigate to QA Railway Login page");
-		open(Constant.RAILWAY_URL);
+		WindowManager.open(Constant.RAILWAY_URL);
 		
 		System.out.println("2. Login with a valid account ");
 		loginPage = homePage.gotoPage(MenuItem.LOGIN, LoginPage.class);
