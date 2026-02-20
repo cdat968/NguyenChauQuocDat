@@ -7,8 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -97,7 +97,7 @@ public class Utilities extends WindowManager {
 	
 	public static WebElement waitforVisibility(By locator, int timeOutInSeconds) {
 		WebDriverWait wait = new WebDriverWait(Constant.WEBDRIVER, Duration.ofSeconds(timeOutInSeconds));
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		return wait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 	
 	public static List<WebElement> waitForAllVisible(By locator) {

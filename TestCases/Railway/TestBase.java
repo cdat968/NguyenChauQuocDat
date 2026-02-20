@@ -16,14 +16,12 @@ import Constant.MenuItem;
 
 public class TestBase {
 	
-	
 	String strEmail = Utilities.generateRandomString();
 	HomePage homePage = new HomePage();
-
 	
 	@Parameters("browser")
 	@BeforeMethod
-	public void beforeMethod(@Optional("firefox") String browser) {
+	public void beforeMethod(@Optional("chrome") String browser) {
 		String runBrowser = System.getProperty("browser", browser);
 		
 		if("chrome".equalsIgnoreCase(runBrowser)) {
@@ -36,8 +34,6 @@ public class TestBase {
 			throw new RuntimeException("Unsupported browser: "+ runBrowser);
 		}
 		System.out.println("Pre-condition");
-		
-//		Constant.WEBDRIVER = new ChromeDriver();
 		
 		Constant.WEBDRIVER.manage().window().maximize();
 		WindowManager.open(Constant.RAILWAY_URL);

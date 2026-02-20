@@ -12,7 +12,6 @@ import Constant.Constant;
 
 public class MyTicketPage extends GeneralPage{
 	
-//	protected final String _btnCancel = "//table[@class='MyTable']/tbody/tr[td[count(//tr[@class='TableSmallHeader']//th[normalize-space()='Depart Station']/preceding-sibling::th)+ 1][normalize-space()='%s'] and td[count(//tr[@class='TableSmallHeader']/th[normalize-space()='Arrive Station']/preceding-sibling::th)+ 1][normalize-space()='%s']]//input[@value='Cancel']";
 	protected final By row = By.xpath("//table[@class='MyTable']//tbody/tr");
 	protected final By btnCancel = By.xpath("//input[@value='Cancel']");
 	protected final String isDeleteBtn = "//input[@onClick='%s']";
@@ -26,7 +25,7 @@ public class MyTicketPage extends GeneralPage{
 	                return row;
 	            }
 	        }
-	        return null; // continue waiting
+	        return null; 
 	    });
 	}
 	
@@ -42,13 +41,12 @@ public class MyTicketPage extends GeneralPage{
 		cancelBtn.click();
 		waitAlert();
 		Alert alert = Constant.WEBDRIVER.switchTo().alert();
-		System.out.println("Text alert: " + alert.getText());
 		alert.accept();
 		
 		return cancelTicketId;
 	}
 	
-	protected Boolean isDeletedTicket(String ticketId) {
+	protected Boolean isTicketPresent(String ticketId) {
 		return waitForAllVisible(getBy(isDeleteBtn, ticketId)).size() > 0;
 	}	
 }

@@ -7,10 +7,10 @@ public class Ticket {
 	protected String departureDate;
 	protected String departureFrom;
 	protected String arrivalAt;
-	protected SeatType seatType;
+	protected String seatType;
 	protected Integer ticketAmount;
 	
-	public Ticket(String departureDate, String departureFrom, String arrivalAt, SeatType seatType, Integer ticketAmount) {
+	public Ticket(String departureDate, String departureFrom, String arrivalAt, String seatType, Integer ticketAmount) {
 		this.departureDate = departureDate;
 		this.departureFrom = departureFrom;
 		this.arrivalAt = arrivalAt;
@@ -42,11 +42,11 @@ public class Ticket {
 		return this.arrivalAt;
 	}
 	
-	public void setSeatType(SeatType seatType) {
+	public void setSeatType(String seatType) {
 		this.seatType = seatType;
 	}
 	
-	public SeatType getSeatType() {
+	public String getSeatType() {
 		return this.seatType;
 	}
 	

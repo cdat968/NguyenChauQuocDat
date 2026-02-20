@@ -8,36 +8,25 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">25.404</td><td></td><td></td></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">FirstTest</a></td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num attn">8</td><td class="num">374.881</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m0">afterMethod</a></td><td rowspan="1">1770878993738</td><td rowspan="1">5</td></tr><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m1">TC12</a></td><td rowspan="1">1770878973299</td><td rowspan="1">20433</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">FirstTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">Railway.BookTicketTest</td><td><a href="#m0">TC12</a></td><td rowspan="1">1771571302794</td><td rowspan="1">29178</td></tr><tr class="failedeven"><td><a href="#m1">TC13</a></td><td rowspan="1">1771571337769</td><td rowspan="1">18428</td></tr><tr class="failedeven"><td><a href="#m2">TC15</a></td><td rowspan="1">1771571412003</td><td rowspan="1">18353</td></tr><tr class="failedodd"><td rowspan="1">Railway.CancelBookingTest</td><td><a href="#m3">TC16</a></td><td rowspan="1">1771571445714</td><td rowspan="1">29922</td></tr><tr class="failedeven"><td rowspan="2">Railway.LoginTest</td><td><a href="#m4">TC03</a></td><td rowspan="1">1771571122650</td><td rowspan="1">2042</td></tr><tr class="failedeven"><td><a href="#m5">TC04</a></td><td rowspan="1">1771571128463</td><td rowspan="1">2032</td></tr><tr class="failedodd"><td rowspan="1">Railway.RegisterTest</td><td><a href="#m6">TC09</a></td><td rowspan="1">1771571208679</td><td rowspan="1">8264</td></tr><tr class="failedeven"><td rowspan="1">Railway.ResetPasswordTest</td><td><a href="#m7">TC10</a></td><td rowspan="1">1771571220701</td><td rowspan="1">44272</td></tr><tr><th colspan="4">FirstTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">Railway.BookTicketTest</td><td><a href="#m8">TC14</a></td><td rowspan="1">1771571375233</td><td rowspan="1">16940</td></tr><tr class="passedodd"><td rowspan="3">Railway.LoginTest</td><td><a href="#m9">TC01</a></td><td rowspan="1">1771571110235</td><td rowspan="1">2687</td></tr><tr class="passedodd"><td><a href="#m10">TC02</a></td><td rowspan="1">1771571116807</td><td rowspan="1">2184</td></tr><tr class="passedodd"><td><a href="#m11">TC05</a></td><td rowspan="1">1771571134163</td><td rowspan="1">9811</td></tr><tr class="passedeven"><td rowspan="1">Railway.LogoutTest</td><td><a href="#m12">TC06</a></td><td rowspan="1">1771571147610</td><td rowspan="1">4621</td></tr><tr class="passedodd"><td rowspan="2">Railway.RegisterTest</td><td><a href="#m13">TC07</a></td><td rowspan="1">1771571156009</td><td rowspan="1">31979</td></tr><tr class="passedodd"><td><a href="#m14">TC08</a></td><td rowspan="1">1771571192870</td><td rowspan="1">12151</td></tr><tr class="passedeven"><td rowspan="1">Railway.ResetPasswordTest</td><td><a href="#m15">TC11</a></td><td rowspan="1">1771571269470</td><td rowspan="1">22681</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">Railway.BookTicketTest#afterMethod</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+<h2>FirstTest</h2><h3 id="m0">Railway.BookTicketTest#TC12</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Message is not displayed as expected expected [Ticket booked successfully!] but found [Book ticket]
+	at Railway.BookTicketTest.TC12(BookTicketTest.java:53)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">Railway.BookTicketTest#TC13</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=145.0.7632.76)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:126)
-	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-	at java.base/java.lang.Thread.run(Thread.java:1474)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Railway.BookTicketTest#TC12</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: Failed to decode response from marionette
-Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;14.5&apos;, java.version: &apos;25.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id=&apos;email_list&apos;]//td[@class=&apos;td3&apos; and contains(normalize-space(),&apos;Please confirm your account mlj3m50q3rf@sharklasers.com&apos;)], using=xpath}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [93651c81cf032666cb97d648b279d92e, clickElement {id=f.C911F500B79CE293D972C2BE86CDBD0A.d.1BC6C984D3E6A5C5B07C0C02C1C5CE90.e.51}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.76, chrome: {chromedriverVersion: 145.0.7632.77 (da516187054a..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52047}, goog:processID: 68468, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52047/devtoo..., se:cdpVersion: 145.0.7632.76, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (93651c81cf032666cb97d648b279d92e)] -&gt; xpath: //div[@id=&apos;menu&apos;]//span[normalize-space()=&apos;Book ticket&apos;]]
+Session ID: 93651c81cf032666cb97d648b279d92e
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -45,45 +34,47 @@ Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
-	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
-	at Common.Utilities.getElements(Utilities.java:24)
-	at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:77)
-	at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:87)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
-	at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:86)
-	at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:70)
-	at Common.EmailService.waitAndHandleEmail(EmailService.java:22)
-	at Railway.TestBase.registerAndActiveAccount(TestBase.java:68)
-	at Railway.BookTicketTest.TC12(BookTicketTest.java:23)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at Common.Utilities.click(Utilities.java:52)
+	at Railway.GeneralPage.clickTab(GeneralPage.java:15)
+	at Railway.GeneralPage.gotoPage(GeneralPage.java:35)
+	at Railway.BookTicketTest.TC13(BookTicketTest.java:101)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Railway.BookTicketTest#TC15</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: System does not find date: 2/21/2026
+	at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:94)
+	at Railway.BookTicketPage.bookTicket(BookTicketPage.java:149)
+	at Railway.BookTicketTest.TC15(BookTicketTest.java:223)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">Railway.CancelBookingTest#TC16</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Ticket is not canceled as expected expected [false] but found [true]
+	at Railway.CancelBookingTest.TC16(CancelBookingTest.java:48)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">Railway.LoginTest#TC03</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Error message is not displayed as expected expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]
+	at Railway.LoginTest.TC03(LoginTest.java:81)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">Railway.LoginTest#TC04</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Error message is not displayed as expected message 1 expected [Invalid username or password. Please try again] but found [There was a problem with your login and/or errors exist in your form.]
+	at Railway.LoginTest.TC04(LoginTest.java:111)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">Railway.RegisterTest#TC09</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Success message did not shown expected [Thank you for registering your account] but found [Create account]
+	at Railway.RegisterTest.TC09(RegisterTest.java:121)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">Railway.ResetPasswordTest#TC10</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Message is not displayed as expected expected [The new password cannot be the same with the current password] but found [Password changed! Click here to login.]
+	at Railway.ResetPasswordTest.TC10(ResetPasswordTest.java:56)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">Railway.BookTicketTest#TC14</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">Railway.LoginTest#TC01</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">Railway.LoginTest#TC02</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">Railway.LoginTest#TC05</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">Railway.LogoutTest#TC06</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">Railway.RegisterTest#TC07</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">Railway.RegisterTest#TC08</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">Railway.ResetPasswordTest#TC11</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

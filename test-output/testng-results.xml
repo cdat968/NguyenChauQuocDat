@@ -1,62 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="16" passed="8" failed="8" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-12T13:49:28 GMT+07:00" name="Default suite" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="25404">
+  <suite started-at="2026-02-20T14:05:04 GMT+07:00" name="Suite" finished-at="2026-02-20T14:11:19 GMT+07:00" duration-ms="374881">
     <groups>
     </groups>
-    <test started-at="2026-02-12T13:49:28 GMT+07:00" name="Default test" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="25404">
-      <class name="Railway.BookTicketTest">
-        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:28 GMT+07:00" name="beforeMethod" finished-at="2026-02-12T13:49:33 GMT+07:00" duration-ms="4942" status="PASS">
+    <test started-at="2026-02-20T14:05:04 GMT+07:00" name="FirstTest" finished-at="2026-02-20T14:11:19 GMT+07:00" duration-ms="374881">
+      <class name="Railway.ResetPasswordTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:06:57 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:07:00 GMT+07:00" duration-ms="3667" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC12()[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:33 GMT+07:00" name="TC12" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="20433" status="FAIL">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method signature="TC10()[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:07:00 GMT+07:00" name="TC10" finished-at="2026-02-20T14:07:44 GMT+07:00" duration-ms="44272" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Failed to decode response from marionette
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlj3m50q3rf@sharklasers.com')], using=xpath}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45]]>
+              <![CDATA[Message is not displayed as expected expected [The new password cannot be the same with the current password] but found [Password changed! Click here to login.]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: Failed to decode response from marionette
-Build info: version: '4.40.0', revision: 'b3333f1'
-System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, findElements {value=//tbody[@id='email_list']//td[@class='td3' and contains(normalize-space(),'Please confirm your account mlj3m50q3rf@sharklasers.com')], using=xpath}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:183)
-at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:104)
-at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:437)
-at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:431)
-at Common.Utilities.getElements(Utilities.java:24)
-at Guerrillamail.GuerrillamailPage.isEmailPresent(GuerrillamailPage.java:77)
-at Guerrillamail.GuerrillamailPage.lambda$0(GuerrillamailPage.java:87)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:207)
-at Guerrillamail.GuerrillamailPage.WaitUntilMailArrive(GuerrillamailPage.java:86)
-at Guerrillamail.GuerrillamailPage.waitForEmail(GuerrillamailPage.java:70)
-at Common.EmailService.waitAndHandleEmail(EmailService.java:22)
-at Railway.TestBase.registerAndActiveAccount(TestBase.java:68)
-at Railway.BookTicketTest.TC12(BookTicketTest.java:23)
+              <![CDATA[java.lang.AssertionError: Message is not displayed as expected expected [The new password cannot be the same with the current password] but found [Password changed! Click here to login.]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at Railway.ResetPasswordTest.TC10(ResetPasswordTest.java:56)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -85,46 +59,617 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC10 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:07:44 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:07:45 GMT+07:00" duration-ms="118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:07:45 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:07:49 GMT+07:00" duration-ms="4378" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC11()[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:07:49 GMT+07:00" name="TC11" finished-at="2026-02-20T14:08:12 GMT+07:00" duration-ms="22681" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC11 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.ResetPasswordTest@dd8ba08]" started-at="2026-02-20T14:08:12 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:08:18 GMT+07:00" duration-ms="6573" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Railway.ResetPasswordTest -->
+      <class name="Railway.RegisterTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:05:52 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:56 GMT+07:00" duration-ms="3685" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC07()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:05:56 GMT+07:00" name="TC07" finished-at="2026-02-20T14:06:27 GMT+07:00" duration-ms="31979" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC07 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:27 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:06:28 GMT+07:00" duration-ms="603" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:28 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:06:32 GMT+07:00" duration-ms="4276" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC08()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:32 GMT+07:00" name="TC08" finished-at="2026-02-20T14:06:45 GMT+07:00" duration-ms="12151" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC08 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:45 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:06:45 GMT+07:00" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:45 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:06:48 GMT+07:00" duration-ms="3562" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC09()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:48 GMT+07:00" name="TC09" finished-at="2026-02-20T14:06:56 GMT+07:00" duration-ms="8264" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Success message did not shown expected [Thank you for registering your account] but found [Create account]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Success message did not shown expected [Thank you for registering your account] but found [Create account]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at Railway.RegisterTest.TC09(RegisterTest.java:121)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC09 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.RegisterTest@515aebb0]" started-at="2026-02-20T14:06:56 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:06:57 GMT+07:00" duration-ms="88" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Railway.RegisterTest -->
+      <class name="Railway.LoginTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:04 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:10 GMT+07:00" duration-ms="5459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC01()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:10 GMT+07:00" name="TC01" finished-at="2026-02-20T14:05:12 GMT+07:00" duration-ms="2687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:12 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:13 GMT+07:00" duration-ms="90" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:13 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:16 GMT+07:00" duration-ms="3792" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC02()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:16 GMT+07:00" name="TC02" finished-at="2026-02-20T14:05:18 GMT+07:00" duration-ms="2184" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:18 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:19 GMT+07:00" duration-ms="86" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:19 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:22 GMT+07:00" duration-ms="3572" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC03()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:22 GMT+07:00" name="TC03" finished-at="2026-02-20T14:05:24 GMT+07:00" duration-ms="2042" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Error message is not displayed as expected expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Error message is not displayed as expected expected [There was a problem with your login and/or errors exist in your form.] but found [Invalid username or password. Please try again.]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at Railway.LoginTest.TC03(LoginTest.java:81)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC03 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:24 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:24 GMT+07:00" duration-ms="84" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:24 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:28 GMT+07:00" duration-ms="3685" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC04()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:28 GMT+07:00" name="TC04" finished-at="2026-02-20T14:05:30 GMT+07:00" duration-ms="2032" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Error message is not displayed as expected message 1 expected [Invalid username or password. Please try again] but found [There was a problem with your login and/or errors exist in your form.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Error message is not displayed as expected message 1 expected [Invalid username or password. Please try again] but found [There was a problem with your login and/or errors exist in your form.]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at Railway.LoginTest.TC04(LoginTest.java:111)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC04 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:30 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:30 GMT+07:00" duration-ms="85" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:30 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:34 GMT+07:00" duration-ms="3582" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC05()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:34 GMT+07:00" name="TC05" finished-at="2026-02-20T14:05:43 GMT+07:00" duration-ms="9811" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC05 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LoginTest@52e6fdee]" started-at="2026-02-20T14:05:43 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:44 GMT+07:00" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Railway.LoginTest -->
+      <class name="Railway.CancelBookingTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.CancelBookingTest@6c64cb25]" started-at="2026-02-20T14:10:41 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:10:45 GMT+07:00" duration-ms="3740" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC16()[pri:0, instance:Railway.CancelBookingTest@6c64cb25]" started-at="2026-02-20T14:10:45 GMT+07:00" name="TC16" finished-at="2026-02-20T14:11:15 GMT+07:00" duration-ms="29922" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Ticket is not canceled as expected expected [false] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Ticket is not canceled as expected expected [false] but found [true]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertFalse(Assert.java:79)
+at Railway.CancelBookingTest.TC16(CancelBookingTest.java:48)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC16 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.CancelBookingTest@6c64cb25]" started-at="2026-02-20T14:11:15 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:11:19 GMT+07:00" duration-ms="4006" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Railway.CancelBookingTest -->
+      <class name="Railway.BookTicketTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:08:18 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:08:22 GMT+07:00" duration-ms="4067" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC12()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:08:22 GMT+07:00" name="TC12" finished-at="2026-02-20T14:08:51 GMT+07:00" duration-ms="29178" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Message is not displayed as expected expected [Ticket booked successfully!] but found [Book ticket]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Message is not displayed as expected expected [Ticket booked successfully!] but found [Book ticket]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at Railway.BookTicketTest.TC12(BookTicketTest.java:53)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC12 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@661972b0]" started-at="2026-02-12T13:49:53 GMT+07:00" name="afterMethod" finished-at="2026-02-12T13:49:53 GMT+07:00" duration-ms="5" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:08:51 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:08:55 GMT+07:00" duration-ms="3084" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:08:55 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:08:57 GMT+07:00" duration-ms="2710" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC13()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:08:57 GMT+07:00" name="TC13" finished-at="2026-02-20T14:09:16 GMT+07:00" duration-ms="18428" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
-              <![CDATA[Tried to run command without establishing a connection
+              <![CDATA[stale element reference: stale element not found
+  (Session info: chrome=145.0.7632.76)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: '4.40.0', revision: 'b3333f1'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45]]>
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [93651c81cf032666cb97d648b279d92e, clickElement {id=f.C911F500B79CE293D972C2BE86CDBD0A.d.1BC6C984D3E6A5C5B07C0C02C1C5CE90.e.51}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.76, chrome: {chromedriverVersion: 145.0.7632.77 (da516187054a..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52047}, goog:processID: 68468, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52047/devtoo..., se:cdpVersion: 145.0.7632.76, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (93651c81cf032666cb97d648b279d92e)] -> xpath: //div[@id='menu']//span[normalize-space()='Book ticket']]
+Session ID: 93651c81cf032666cb97d648b279d92e]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: Tried to run command without establishing a connection
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=145.0.7632.76)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: '4.40.0', revision: 'b3333f1'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.5', java.version: '25.0.2'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [d48efcae-c6ca-4a7c-a71d-d4d920eaea45, quit {}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 147.0.3, moz:accessibilityChecks: false, moz:buildID: 20260203002554, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 23.5.0, moz:processID: 25118, moz:profile: /var/folders/9r/35qbwsxs5kj..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Macintosh; Int...}
-Session ID: d48efcae-c6ca-4a7c-a71d-d4d920eaea45
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [93651c81cf032666cb97d648b279d92e, clickElement {id=f.C911F500B79CE293D972C2BE86CDBD0A.d.1BC6C984D3E6A5C5B07C0C02C1C5CE90.e.51}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.76, chrome: {chromedriverVersion: 145.0.7632.77 (da516187054a..., userDataDir: /var/folders/9r/35qbwsxs5kj...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52047}, goog:processID: 68468, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52047/devtoo..., se:cdpVersion: 145.0.7632.76, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on mac (93651c81cf032666cb97d648b279d92e)] -> xpath: //div[@id='menu']//span[normalize-space()='Book ticket']]
+Session ID: 93651c81cf032666cb97d648b279d92e
 at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.lambda$execute$1(DriverCommandExecutor.java:126)
-at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1789)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
-at java.base/java.lang.Thread.run(Thread.java:1474)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at Common.Utilities.click(Utilities.java:52)
+at Railway.GeneralPage.clickTab(GeneralPage.java:15)
+at Railway.GeneralPage.gotoPage(GeneralPage.java:35)
+at Railway.BookTicketTest.TC13(BookTicketTest.java:101)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC13 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:09:16 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:09:31 GMT+07:00" duration-ms="15191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:09:31 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:09:35 GMT+07:00" duration-ms="3839" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC14()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:09:35 GMT+07:00" name="TC14" finished-at="2026-02-20T14:09:52 GMT+07:00" duration-ms="16940" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC14 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:09:52 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:10:07 GMT+07:00" duration-ms="15038" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:10:07 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:10:12 GMT+07:00" duration-ms="4789" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC15()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:10:12 GMT+07:00" name="TC15" finished-at="2026-02-20T14:10:30 GMT+07:00" duration-ms="18353" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[System does not find date: 2/21/2026]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: System does not find date: 2/21/2026
+at Railway.BookTicketPage.selectDepartureDate(BookTicketPage.java:94)
+at Railway.BookTicketPage.bookTicket(BookTicketPage.java:149)
+at Railway.BookTicketTest.TC15(BookTicketTest.java:223)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC15 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.BookTicketTest@245b4bdc]" started-at="2026-02-20T14:10:30 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:10:41 GMT+07:00" duration-ms="11615" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
       </class> <!-- Railway.BookTicketTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="Railway.LogoutTest">
+        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:Railway.LogoutTest@37afeb11]" started-at="2026-02-20T14:05:44 GMT+07:00" name="beforeMethod" finished-at="2026-02-20T14:05:47 GMT+07:00" duration-ms="3538" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC06()[pri:0, instance:Railway.LogoutTest@37afeb11]" started-at="2026-02-20T14:05:47 GMT+07:00" name="TC06" finished-at="2026-02-20T14:05:52 GMT+07:00" duration-ms="4621" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC06 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:Railway.LogoutTest@37afeb11]" started-at="2026-02-20T14:05:52 GMT+07:00" name="afterMethod" finished-at="2026-02-20T14:05:52 GMT+07:00" duration-ms="90" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- Railway.LogoutTest -->
+    </test> <!-- FirstTest -->
+  </suite> <!-- Suite -->
 </testng-results>

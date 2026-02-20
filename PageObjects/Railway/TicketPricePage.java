@@ -9,10 +9,4 @@ public class TicketPricePage extends GeneralPage {
 	protected Integer getPriceBySeatType(SeatType seatType) {
 		return Integer.parseInt(getText(txtPriceSeatType, seatType.getCode()));
 	}
-	
-//	protected String getPriceBySeatType(String seatType) {
-//		
-//		return getText(_txtPriceSeatType, seatType);
-//	
-//	}
 }

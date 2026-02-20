@@ -13,14 +13,14 @@ public class CancelBookingTest extends TestBase {
 	@Test
 	public void TC16() {
 		
+		int amountTicket = 6;
+		boolean isDateFromDepartDay = true;
 		BookTicketPage bookTicketPage = new BookTicketPage();
 		MyTicketPage myTicketPage = new MyTicketPage();
-		int amountTicket = 6;
-		Ticket ticket = new Ticket("", Constant.DA_NANG, Constant.HUE, SeatType.HARD_SEAT, amountTicket);
+		Ticket ticket = new Ticket("", Constant.DA_NANG, Constant.HUE, SeatType.HARD_SEAT.getText(), amountTicket);
 		LoginPage loginPage = new LoginPage();
 		
 		System.out.println("TC16 - User can cancel a ticket");
-		
 		System.out.println("Pre-condition: an actived account is existing");
 		String email = registerAndActiveAccount();
 		
@@ -33,7 +33,7 @@ public class CancelBookingTest extends TestBase {
 		
 		System.out.println("3. Book a ticket");
 		bookTicketPage = homePage.gotoPage(MenuItem.BOOKTICKET, BookTicketPage.class);
-		String daysFromDepartDay = bookTicketPage.convertDateToString(6, bookTicketPage.getDepartDay());
+		String daysFromDepartDay = bookTicketPage.convertDateToString(6, isDateFromDepartDay);
 		ticket.setDepartureDate(daysFromDepartDay);
 		bookTicketPage.bookTicket(ticket);
 		
@@ -44,9 +44,7 @@ public class CancelBookingTest extends TestBase {
 		System.out.println("6. Click on 'OK' button on Confirmation message 'Are you sure?' ");
 		String deleteTicketId = myTicketPage.cancelBooking(Constant.DA_NANG, Constant.HUE);
 		
-		System.out.println("ticketId: " + deleteTicketId);
 		System.out.println("V.P: The canceled ticket is disappeared.");
-		Assert.assertFalse(myTicketPage.isDeletedTicket(deleteTicketId), "Ticket is not canceled as expected");
-	}
-	
+		Assert.assertFalse(myTicketPage.isTicketPresent(deleteTicketId), "Ticket is not canceled as expected");
+	}	
 }

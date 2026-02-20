@@ -19,28 +19,25 @@ public class BookTicketPage extends GeneralPage {
 	private final By selectSeatType = By.xpath("//form[@method='post']//select[@name='SeatType']");
 	private final By selectTicketAmount = By.xpath("//form[@method='post']//select[@name='TicketAmount']");
 	private final By btnBookTicket = By.xpath("//form[@method='post']//input[@value='Book ticket']");
-	private final By SuccessMsg = By.xpath("//div[@id='content']//h1[@align='center']");
+	private final By successMsg = By.xpath("//div[@id='content']//h1[@align='center']");
 	private final By txtTitleTable = By.xpath("//table[@class='MyTable MedTable']//tr[@class='TableSmallHeader']/th");
-	private final String txtInfoTicket = "//table[@class='MyTable WideTable']//tr[@class='OddRow']//td[text()='%s']";
-	private final String columnTicketInfo = "//table[contains(@class, 'MyTable')]//tr/td[count(//th[normalize-space()='%s']/preceding-sibling::th)+1]";
+	private final String textValueByHeader = "//table[@class='MyTable WideTable']//tr[@class='OddRow']/td[count(//table[@class='MyTable WideTable']//th[normalize-space()='%s']/preceding-sibling::th)+ 1]";
 
 	protected String getTextTitleTable() {
 		return getText(txtTitleTable);
 	}
 	
 	protected String getSuccessMsg() {
-		return getText(SuccessMsg);
+		return getText(successMsg);
 	}
 	
-	protected String getInforTicket(String value) {
-		return getText(txtInfoTicket, value);
+	protected String getInforTicketByHeader(String value) {
+		return getText(textValueByHeader, value);
 	}
 	
 	protected String getInforTicket(SeatType seatType) {
-		return getText(txtInfoTicket, seatType.getText());
+		return getText(textValueByHeader, seatType.getText());
 	}
-	
-	
 	
 	protected String getDepartureStation(int daysFromToDay) {
 		LocalDate targetDate = LocalDate.now().plusDays(daysFromToDay);
@@ -54,30 +51,11 @@ public class BookTicketPage extends GeneralPage {
 		return LocalDate.parse(daytext, DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
 	
-	protected String convertDateToString(int days, LocalDate departDate) {
-		LocalDate targetDate = departDate.plusDays(days);
-		return targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
-	}
-	
-	protected void selectDepartureDate(String selectedDepartDay) {
-//		LocalDate targetDate = LocalDate.now().plusDays(daysFromToday);
-//		String expectedDateTxt = targetDate.format(DateTimeFormatter.ofPattern("M/d/yyyy"));
-		WebElement element = waitForVisibility(selectDate);
-		scrollToElement(element);
-		Select selectDate = new Select(element);
-		boolean isSelected = false;
-		
-		for (WebElement option : selectDate.getOptions()) {
-			if (option.getText().trim().equals(selectedDepartDay)) {
-				option.click();
-				isSelected = true;
-				break;
-			}
+	protected String convertDateToString(int days, boolean isFromDepartDate) {
+		if (!isFromDepartDate) {
+			return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 		}
-		
-		if (!isSelected) {
-			throw new RuntimeException("System does not find date: " +selectedDepartDay);
-		}
+		return getDepartDay().plusDays(days).format(DateTimeFormatter.ofPattern("M/d/yyyy"));
 	}
 	
 	protected void selectByText(By locator, String text) {
@@ -97,8 +75,28 @@ public class BookTicketPage extends GeneralPage {
 		}
 	}
 	
-	protected void selectSeatType(SeatType seatType) {
-		selectByText(selectSeatType, seatType.getText());
+	protected void selectDepartureDate(String selectedDepartDay) {
+		System.out.println("departure Day:" +selectedDepartDay);
+		WebElement element = getElement(selectDate);
+		scrollToElement(element);
+		Select selectDate = new Select(element);
+		boolean isSelected = false;
+		
+		for (WebElement option : selectDate.getOptions()) {
+			if (option.getText().trim().equals(selectedDepartDay)) {
+				option.click();
+				isSelected = true;
+				break;
+			}
+		}
+		
+		if (!isSelected) {
+			throw new RuntimeException("System does not find date: " +selectedDepartDay);
+		}
+	}
+	
+	protected void selectSeatType(String seatType) {
+		selectByText(selectSeatType, seatType);
 	}
 	
 	protected void selectTicketAmount(int number) {
@@ -147,16 +145,6 @@ public class BookTicketPage extends GeneralPage {
 		selectLocationByVisibleText(type, city);
 	}
 	
-	protected Ticket getBookedTicketInfo() {
-		String actualDate = getText(columnTicketInfo, "Depart Date");
-		String actualDepartStation = getText(columnTicketInfo, "Depart Station");
-		String actualArriveStation = getText(columnTicketInfo, "Arrive Station");
-		SeatType actualSeatType = SeatType.fromText(getText(columnTicketInfo, "Seat Type"));
-		int actualAmountTicket = Integer.parseInt(getText(columnTicketInfo, "Amount"));
-		
-		return new Ticket(actualDate, actualDepartStation, actualArriveStation, actualSeatType, actualAmountTicket);
-	}
-	
 	protected BookTicketPage bookTicket(Ticket ticket) {
 		selectDepartureDate(ticket.getDepartureDate());
 		selectDepartureLocation(LocationType.DEPARTURE, ticket.getDepartureFrom());
@@ -166,23 +154,6 @@ public class BookTicketPage extends GeneralPage {
 		click(btnBookTicket);
 		
 		return this;
-	}
-	
-	protected void assertTicket(Ticket actualTicket, Ticket expectedTicket) {
-		 Assert.assertEquals(actualTicket.getDepartureDate(), expectedTicket.getDepartureDate(),
-		            "Departure date mismatch");
-
-		 Assert.assertEquals(actualTicket.getDepartureFrom(), expectedTicket.getDepartureFrom(),
-		            "Departure station mismatch");
-
-		 Assert.assertEquals(actualTicket.getArrivalAt(), expectedTicket.getArrivalAt(),
-		            "Arrival station mismatch");
-
-		 Assert.assertEquals(actualTicket.getSeatType(), expectedTicket.getSeatType(),
-		            "Seat type mismatch");
-
-		 Assert.assertEquals(actualTicket.getTicketAmount(), expectedTicket.getTicketAmount(),
-		            "Ticket amount mismatch");
 	}
 	
 }

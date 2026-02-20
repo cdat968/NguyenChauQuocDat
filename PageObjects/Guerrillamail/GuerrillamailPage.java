@@ -70,7 +70,6 @@ public class GuerrillamailPage extends Utilities {
 		WaitUntilMailArrive(mailLocator, email);
 		click(mailLocator, email);
 		return getText(linkToVerify);
-		
 	}
 	
 	public Boolean isEmailPresent(String locator, String email) {
@@ -80,7 +79,7 @@ public class GuerrillamailPage extends Utilities {
 	public void WaitUntilMailArrive(String locator, String email) {
 		Wait<WebDriver> wait = new FluentWait<>(Constant.WEBDRIVER)
 				.withTimeout(Duration.ofSeconds(Constant.SECONDS))
-				.pollingEvery(Duration.ofSeconds(5))
+				.pollingEvery(Duration.ofSeconds(Constant.SHORT_TIMEOUT))
 				.ignoring(NoSuchElementException.class);
 		
 		wait.until(d -> {

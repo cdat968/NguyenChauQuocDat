@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import Common.WindowManager;
 import Constant.Constant;
+import Constant.HeaderBookedTicket;
 import Constant.LocationType;
 import Constant.MenuItem;
 import Constant.SeatType;
@@ -16,9 +17,10 @@ public class BookTicketTest extends TestBase {
 		
 		BookTicketPage bookTicketPage = new BookTicketPage();
 		LoginPage loginPage = new LoginPage();
-		Account account = new Account("", Constant.PASSWORD, null);
 		Integer amountTicket = 1;
-		Ticket ticket = new Ticket("", Constant.NHA_TRANG, Constant.HUE, SeatType.SOFT_BED_AC, amountTicket);
+		boolean isDateFromDepartDay = true;
+		Account account = new Account("", Constant.PASSWORD, null);
+		Ticket ticket = new Ticket("", Constant.NHA_TRANG, Constant.HUE, SeatType.SOFT_BED_AC.getText(), amountTicket);
 		
 		System.out.println("TC12 - User can book 1 ticket at a time");
 		System.out.println("Pre-condition: an actived account is existing");
@@ -40,7 +42,8 @@ public class BookTicketTest extends TestBase {
 		System.out.println("6. Select 'Soft bed with air conditioner' for 'Seat type'");
 		System.out.println("7. Select '1' for 'Ticket amount'");
 		System.out.println("8. Click on 'Book ticket' button");
-		String daysFromDepartDay = bookTicketPage.convertDateToString(2, bookTicketPage.getDepartDay());
+		System.out.println("Get DepartDaY:::"+bookTicketPage.getDepartDay());
+		String daysFromDepartDay = bookTicketPage.convertDateToString(2, isDateFromDepartDay);
 		ticket.setDepartureDate(daysFromDepartDay);
 		bookTicketPage.bookTicket(ticket);
 		
@@ -49,31 +52,38 @@ public class BookTicketTest extends TestBase {
 		String expectedSuccessMsg = "Ticket booked successfully!";
 		Assert.assertEquals(actualSuccessMsg, expectedSuccessMsg, "Message is not displayed as expected");
 		
-		System.out.println("Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-		Ticket actualTicket = bookTicketPage.getBookedTicketInfo();
-		Ticket expectedTicket = ticket;
-		bookTicketPage.assertTicket(actualTicket, expectedTicket);
-//		String actualDepartureDate = bookTicketPage.getInforTicket(bookTicketPage.getDepartureStation(2));
-//		String expectedDepartureDate = bookTicketPage.getDepartureStation(2);
-//		Assert.assertEquals(actualDepartureDate, expectedDepartureDate, "Depart Date is not displayed as expected");
-//		String actualDepartStation = bookTicketPage.getInforTicket(Constant.NHA_TRANG);
-//		Assert.assertEquals(actualDepartStation, Constant.NHA_TRANG, "Departure Station is not displayed as expected");
-//		String actualArriveStation = bookTicketPage.getInforTicket(Constant.HUE);
-//		Assert.assertEquals(actualArriveStation, Constant.HUE, "Arrive Station is not displayed as expected");
-//		String actualSeatType = bookTicketPage.getInforTicket(SeatType.SOFT_BED_AC);
-//		Assert.assertEquals(actualSeatType, SeatType.SOFT_BED_AC.getText(), "Seat Type is not displayed as expected");
-//		String actualAmountTicket = bookTicketPage.getInforTicket(String.valueOf(1));
-//		Assert.assertEquals(actualAmountTicket, "1", "Ticket Amount does not match as expected");
+		System.out.println("V.P: Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
+		
+		String actualDepartureDate = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_DATE.getText());
+		String expectedDepartureDate = daysFromDepartDay;
+		Assert.assertEquals(actualDepartureDate, expectedDepartureDate, "Depart Date is not displayed as expected");
+		
+		String actualDepartStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_STATION.getText());
+		String expectedDepartStation = Constant.NHA_TRANG;
+		Assert.assertEquals(actualDepartStation, expectedDepartStation, "Departure Station is not displayed as expected");
+		
+		String actualArriveStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.ARRIVE_STATION.getText());
+		String expectedArriveStation = Constant.HUE;
+		Assert.assertEquals(actualArriveStation, expectedArriveStation, "Arrive Station is not displayed as expected");
+		
+		String actualSeatType = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.SEAT_TYPE.getText());
+		String expectedSeatType = SeatType.SOFT_BED_AC.getText();
+		Assert.assertEquals(actualSeatType, expectedSeatType, "Seat Type is not displayed as expected");
+		
+		String actualAmountTicket = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.AMOUNT.getText());
+		String expectedAmountTicket = String.valueOf(amountTicket);
+		Assert.assertEquals(actualAmountTicket, expectedAmountTicket, "Ticket Amount does not match as expected");
 	}
 	
 	@Test
 	public void TC13() {
 		
+		boolean isDateFromDepartDay = true;
+		Integer amountTicket = 5;
 		LoginPage loginPage = new LoginPage();
 		BookTicketPage bookTicketPage = new BookTicketPage();
 		Account account = new Account("", Constant.PASSWORD, null);
-		Integer amountTicket = 5;
-		Ticket ticket = new Ticket("", Constant.NHA_TRANG, Constant.SAI_GON, SeatType.SOFT_SEAT_AC, amountTicket);
+		Ticket ticket = new Ticket("", Constant.NHA_TRANG, Constant.SAI_GON, SeatType.SOFT_SEAT_AC.getText(), amountTicket);
 		
 		System.out.println("TC13 - User can book many tickets at a time");
 		System.out.println("Pre-condition: an actived account is existing");
@@ -95,7 +105,7 @@ public class BookTicketTest extends TestBase {
 		System.out.println("6. Select 'Soft bed with air conditioner' for 'Seat type'");
 		System.out.println("7. Select '1' for 'Ticket amount'");
 		System.out.println("8. Click on 'Book ticket' button");
-		String daysFromDepartDay = bookTicketPage.convertDateToString(25, bookTicketPage.getDepartDay());
+		String daysFromDepartDay = bookTicketPage.convertDateToString(25, isDateFromDepartDay);
 		ticket.setDepartureDate(daysFromDepartDay);
 		bookTicketPage.bookTicket(ticket);
 		
@@ -104,21 +114,25 @@ public class BookTicketTest extends TestBase {
 		String expectedSuccessMsg = "Ticket booked successfully!";
 		Assert.assertEquals(actualSuccessMsg, expectedSuccessMsg, "Message is not displayed as expected");
 		
-		String actualDepartDate = bookTicketPage.getInforTicket(bookTicketPage.getDepartureStation(25));
-		String expectedDepartDate = bookTicketPage.getDepartureStation(25);
+		String actualDepartDate = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_DATE.getText());
+		String expectedDepartDate = daysFromDepartDay;
 		Assert.assertEquals(actualDepartDate, expectedDepartDate, "Depart Date is not displayed as expected");
 		
-		String actualDepartureStation = bookTicketPage.getInforTicket(Constant.NHA_TRANG);
-		Assert.assertEquals(actualDepartureStation, Constant.NHA_TRANG, "Departure Station is not displayed as expected");
-		String actualArriveStation = bookTicketPage.getInforTicket(Constant.SAI_GON); 
+		String actualDepartureStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_STATION.getText());
+		String expectedDepartureStation = Constant.NHA_TRANG;
+		Assert.assertEquals(actualDepartureStation, expectedDepartureStation, "Departure Station is not displayed as expected");
 		
-		Assert.assertEquals(actualArriveStation, Constant.SAI_GON, "Arrive Station is not displayed as expected");
-		String actualSeatType = bookTicketPage.getInforTicket(SeatType.SOFT_SEAT_AC);
+		String actualArriveStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.ARRIVE_STATION.getText());
+		String expectedArriveStation = Constant.SAI_GON; 
+		Assert.assertEquals(actualArriveStation, expectedArriveStation, "Arrive Station is not displayed as expected");
 		
-		Assert.assertEquals(actualSeatType, SeatType.SOFT_SEAT_AC.getText(), "Seat Type is not displayed as expected");
-		String actualAmountTicket = bookTicketPage.getInforTicket(String.valueOf(5));
-		Assert.assertEquals(actualAmountTicket, "5", "Ticket Amount does not match as expected");
+		String actualSeatType = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.SEAT_TYPE.getText());
+		String expectedSeatType = SeatType.SOFT_SEAT_AC.getText();
+		Assert.assertEquals(actualSeatType, expectedSeatType, "Seat Type is not displayed as expected");
 		
+		String actualAmountTicket = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.AMOUNT.getText());
+		String expectedAmountTicket = String.valueOf(amountTicket);
+		Assert.assertEquals(actualAmountTicket, expectedAmountTicket, "Ticket Amount does not match as expected");	
 	}
 	
 	@Test 
@@ -167,11 +181,14 @@ public class BookTicketTest extends TestBase {
 
 	@Test
 	public void TC15() {
+		
 		LoginPage loginPage = new LoginPage();
 		BookTicketPage bookTicketPage = new BookTicketPage();
 		TimeTablePage timeTablePage = new TimeTablePage();
+		boolean isDateFromDepartDay = false;
 		int amountTicket = 5;
-		Ticket ticket = new Ticket("", Constant.QUANG_NGAI, Constant.HUE, SeatType.HARD_SEAT, amountTicket);
+		
+		Ticket ticket = new Ticket("", Constant.QUANG_NGAI, Constant.HUE, SeatType.HARD_SEAT.getText(), amountTicket);
 		Account account = new Account("", Constant.PASSWORD, null);
 		
 		System.out.println("TC15 - User can book ticket from Timetable");
@@ -201,7 +218,7 @@ public class BookTicketTest extends TestBase {
 		System.out.println("5. Select Depart date = tomorrow");
 		System.out.println("6. Select Ticket amount = 5");
 		System.out.println("7. Click on 'Book ticket' button");
-		String daysFromDepartDay = bookTicketPage.convertDateToString(1, bookTicketPage.getDepartDay());
+		String daysFromDepartDay = bookTicketPage.convertDateToString(1, isDateFromDepartDay);
 		ticket.setDepartureDate(daysFromDepartDay);
 		bookTicketPage.bookTicket(ticket);
 		
@@ -211,16 +228,24 @@ public class BookTicketTest extends TestBase {
 		Assert.assertEquals(actualSuccessMsg, expectedSuccessMsgString, "Message is not displayed as expected");
 		
 		System.out.println("V.P:  Ticket information display correctly (Depart Date,  Depart Station,  Arrive Station,  Seat Type,  Amount)");
-		String actualDepartDate = bookTicketPage.getInforTicket(bookTicketPage.getDepartureStation(1));
-		String expectedDepartDate = bookTicketPage.getDepartureStation(1);
+		String actualDepartDate = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_DATE.getText());
+		String expectedDepartDate = daysFromDepartDay;
 		Assert.assertEquals(actualDepartDate, expectedDepartDate, "Depart Date is not displayed as expected");
-		String actualDepartStation = bookTicketPage.getInforTicket(Constant.QUANG_NGAI);
-		Assert.assertEquals(actualDepartStation, Constant.QUANG_NGAI, "Departure Station is not displayed as expected");
-		String actualArriveStation = bookTicketPage.getInforTicket(Constant.HUE);
-		Assert.assertEquals(actualArriveStation, Constant.HUE, "Arrive Station is not displayed as expected");
-		String actualSeatType = bookTicketPage.getInforTicket(SeatType.HARD_SEAT);
-		Assert.assertEquals(actualSeatType, SeatType.HARD_SEAT.getText(), "Seat Type is not displayed as expected");
-		String actualAmountTicket = bookTicketPage.getInforTicket(String.valueOf(5));
-		Assert.assertEquals(actualAmountTicket, "5", "Ticket Amount does not match as expected");
+		
+		String actualDepartStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.DEPART_STATION.getText());
+		String expectedDepartStation = Constant.QUANG_NGAI;
+		Assert.assertEquals(actualDepartStation, expectedDepartStation, "Departure Station is not displayed as expected");
+		
+		String actualArriveStation = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.ARRIVE_STATION.getText());
+		String expectedArriveStation = Constant.HUE;
+		Assert.assertEquals(actualArriveStation, expectedArriveStation, "Arrive Station is not displayed as expected");
+		
+		String actualSeatType = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.SEAT_TYPE.getText());
+		String expectedSeatType = SeatType.HARD_SEAT.getText();
+		Assert.assertEquals(actualSeatType, expectedSeatType, "Seat Type is not displayed as expected");
+		
+		String actualAmountTicket = bookTicketPage.getInforTicketByHeader(HeaderBookedTicket.AMOUNT.getText());
+		String expectedAmountTicket = String.valueOf(amountTicket);
+		Assert.assertEquals(actualAmountTicket, expectedAmountTicket, "Ticket Amount does not match as expected");
 	}
 }
